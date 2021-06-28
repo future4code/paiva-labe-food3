@@ -1,3 +1,4 @@
+
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HomePage from "../pages/HomeHage/HomePage";
@@ -11,8 +12,10 @@ import MyCartPage from "../pages/MyCartPage/MyCartPage.js";
 
 
 
+
 const Router = () => {
     return (
+
       <BrowserRouter>
         <Switch>
           <Route exact path={"/"}>
@@ -47,8 +50,10 @@ const Router = () => {
           <Route>
             <div>Página não encontrada</div>
           </Route>
+
           </Switch>
           </BrowserRouter>
+
     );
   };
   
