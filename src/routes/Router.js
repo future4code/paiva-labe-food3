@@ -1,14 +1,23 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HomePage from "../pages/HomePage/HomePage"
-import LoginPage from "../pages/LoginPage/LoginPage"
-import SignUpPage from "../pages/SignupPage/SignupPage"
+
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import HomePage from "../pages/HomeHage/HomePage";
+import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
+import Restaurant from "../pages/Restaurant/Restaurant";
+import SearchPage from "../pages/searchPage/SearchPage.js";
+import LoginPage from "../pages/loginPage/LoginPage";
+import MyCartPage from "../pages/MyCartPage/MyCartPage.js";
+
+
 
 
 
 const Router = () => {
     return (
-      <BrowserRouterter>
-        <Switchitch>
+
+      <BrowserRouter>
+        <Switch>
           <Route exact path={"/"}>
             <HomePage />
           </Route>
@@ -41,8 +50,10 @@ const Router = () => {
           <Route>
             <div>Página não encontrada</div>
           </Route>
-        </Switch>
-      </BrowserRouter>
+
+          </Switch>
+          </BrowserRouter>
+
     );
   };
   
