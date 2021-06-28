@@ -1,7 +1,9 @@
+
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import SignUpPage from "../pages/SignupPage/SignupPage"
+
 
 
 const Router = () => {
@@ -13,41 +15,28 @@ const Router = () => {
           </Route>
   
           <Route exact path={"/login"}>
-           
-              <LoginPage />
-            
-          </Route>
+           <LoginPage />
+             </Route>
   
           <Route exact path={"/signup"}>
             <SignUpPage />
           </Route>
   
-          <Route exact path={"/addAddress"}>
-            
-          </Route>
   
-          <Route exact path={"/cart"}>
-            
-          </Route>
+          <Route exact path={"/Mycart"}>
+            </Route>
   
-          <Route exact path={"/profile"}>
-            <ProfilePage />
-          </Route>
   
           <Route exact path={"/search"}>
             <SearchPage />
-          </Route>
-  
-          <Route exact path={"/editAddressPage"}>
-            
           </Route>
   
           <Route exact path={"/restaurant/:idRest"}>
             <Restaurants />
           </Route>
   
-          <Route exact path={"/editProfile"}>
-            <EditProfilePage />
+          <Route exact path={"/Profile"}>
+            <ProfilePage />
           </Route>
   
           <Route>
