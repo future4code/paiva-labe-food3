@@ -1,6 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HomePage from "../pages/HomeHage/HomePage";
+import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
+import Restaurant from "../pages/Restaurant/restaurant";
+import SearchPage from "../pages/searchPage/SearchPage.js";
+import LoginPage from "../pages/loginPage/LoginPage";
+import MyCartPage from "../pages/MyCartPage/MyCartPage.js";
 
 const Router = () => {
   return (
@@ -22,10 +28,7 @@ const Router = () => {
         <MyCartPage />
         </Route>
 
-        <Route exact path={"/profile"}>
-          <ProfilePage />
-        </Route>
-
+      
         <Route exact path={"/search"}>
           <SearchPage />
         </Route>
