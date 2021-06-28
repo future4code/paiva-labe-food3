@@ -1,7 +1,13 @@
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import HomePage from "../pages/HomePage/HomePage"
+import LoginPage from "../pages/LoginPage/LoginPage"
+import SignUpPage from "../pages/SignupPage/SignupPage"
+
+
 const Router = () => {
     return (
-      <BrowserRouter>
-        <Switch>
+      <BrowserRouterter>
+        <Switchitch>
           <Route exact path={"/"}>
             <HomePage />
           </Route>
