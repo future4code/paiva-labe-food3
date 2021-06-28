@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HomePage from "../pages/HomeHage/HomePage";
+import LoginPage from "../pages/loginPage/LoginPage";
 
 const Router = () => {
   return (
