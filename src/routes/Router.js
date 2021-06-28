@@ -1,3 +1,7 @@
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import HomePage from "../pages/HomeHage/HomePage";
+
 const Router = () => {
   return (
     <BrowserRouter>
