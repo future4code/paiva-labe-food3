@@ -1,25 +1,76 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Container from "@material-ui/core/Container";
+import { useStyles } from "./styled";
+import logo from "../../assets/logo-future-eats.png";
+import { Text } from "./styled";
+import { StyledButton } from "./styled";
+import { login } from "../../services/login";
+import useForm from "../../hooks/useForm";
+import { useHistory } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
 
 export default function LoginPage() {
+  const toast = useToast();
+  const { form, onChange, cleanFields } = useForm({
+    email: "",
+    password: "",
+  });
+  const history = useHistory();
+
+  const onClickLogin = async (event) => {
+    event.preventDefault();
+    cleanFields();
+    const res = await login(form);
+    if (res.status) {
+      localStorage.setItem("token", res.token);
+
+      if (res.hasAddress) {
+        history.push("/restaurantes");
+      } else {
+        toast({
+          title: "Precisamos de mais informações suas",
+          description: "Cadastre o seu endereço para poder continuar!",
+          status: "warning",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+
+        history.push("/cadastar-endereco");
+      }
+    } else {
+      toast({
+        title: "Algo deu errado",
+        description: `${res.message}`,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
+    }
+  };
+
+  const classes = useStyles();
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <form className={classes.form} noValidate>
+        <img src={logo} alt={"logo"} />
+        <p>Entrar</p>
+        <form className={classes.form} onSubmit={onClickLogin} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="email@email.com"
             name="email"
+            value={form.email}
+            onChange={onChange}
             autoComplete="email"
             autoFocus
           />
@@ -29,41 +80,29 @@ export default function LoginPage() {
             required
             fullWidth
             name="password"
-            label="Password"
+            value={form.password}
+            onChange={onChange}
+            label="Mínimo 6 caracteres"
             type="password"
             id="password"
             autoComplete="current-password"
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
+          <StyledButton
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
           >
-            Sign In
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
+            Entrar
+          </StyledButton>
+          <Container>
+            <Link to="/signup">
+              <Text>{"Não possui cadastro? Clique aqui."}</Text>
+            </Link>
+          </Container>
         </form>
       </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
     </Container>
   );
 }

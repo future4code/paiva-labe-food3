@@ -1,17 +1,14 @@
-
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import HomePage from "../pages/HomePage/HomePage";
-import SignupPage from "../pages/SignupPage/SignupPage";
-import ProfilePage from "../pages/ProfilePage/ProfilePage";
-import Restaurant from "../pages/Restaurant/Restaurant";
-import SearchPage from "../pages/SearchPage/SearchPage.js";
-// import LoginPage from "../pages/LoginPage/LoginPage";
+import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HomePage from '../pages/HomePage/HomePage';
+import LoginPage from '../pages/LoginPage/LoginPage'
+import MenuPage from '../pages/MenuPage/MenuPage'
+import SignupPage from '../pages/SignupPage/SignupPage'
+import ProfilePage from '../pages/ProfilePage/ProfilePage'
+import SearchPage from '../pages/SearchPage/SearchPage'
+import RestaurantPage from '../pages/RestaurantPage/RestaurantPage';
+import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
 import MyCartPage from "../pages/MyCartPage/MyCartPage.js";
-
-
-
-
 
 const Router = () => {
     return (
@@ -22,10 +19,15 @@ const Router = () => {
             <HomePage />
           </Route>
   
-          {/* <Route exact path={"/login"}>
-           <LoginPage />
-             </Route> */}
-  
+          <Route exact path={"/login"}>
+           
+              <LoginPage />
+            
+          </Route>
+          <Route exact path={"/:restaurant"}>
+            <RestaurantPage />
+          </Route>
+      
           <Route exact path={"/signup"}>
             <SignupPage />
           </Route>
@@ -40,7 +42,7 @@ const Router = () => {
           </Route>
   
           <Route exact path={"/restaurant/:idRest"}>
-            <Restaurant />
+            <MenuPage />
           </Route>
   
           <Route exact path={"/Profile"}>
