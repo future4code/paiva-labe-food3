@@ -1,3 +1,14 @@
+import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HomePage from '../pages/HomePage/HomePage';
+import LoginPage from '../pages/LoginPage/LoginPage'
+import MenuPage from '../pages/MenuPage/MenuPage'
+import SignUpPage from '../pages/SignupPage/SignupPage'
+import ProfilePage from '../pages/ProfilePage/ProfilePage'
+import SearchPage from '../pages/SearchPage/SearchPage'
+import RestaurantPage from '../pages/RestaurantPage/RestaurantPage';
+import EditProfilePage from '../pages/EditProfilePage/EditProfilePage'
+
 const Router = () => {
     return (
       <BrowserRouter>
@@ -10,6 +21,9 @@ const Router = () => {
            
               <LoginPage />
             
+          </Route>
+          <Route exact path={"/:restaurant"}>
+            <RestaurantPage />
           </Route>
   
           <Route exact path={"/signup"}>
@@ -37,7 +51,7 @@ const Router = () => {
           </Route>
   
           <Route exact path={"/restaurant/:idRest"}>
-            <Restaurants />
+            <MenuPage />
           </Route>
   
           <Route exact path={"/editProfile"}>
