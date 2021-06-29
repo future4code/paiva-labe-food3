@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import { Button, FormControl } from "@material-ui/core";
 import styled from "styled-components";
 
 export const useStyles = makeStyles((theme) => ({
@@ -31,4 +31,7 @@ export const StyledButton = styled(Button)`
   &:hover {
     background: #a21720;
   }
+`;
+export const StyledFormControl = styled(FormControl)`
+  margin: 1rem 0;
 `;

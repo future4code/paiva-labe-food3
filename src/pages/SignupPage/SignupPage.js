@@ -86,7 +86,7 @@ function SignupPage() {
       <CssBaseline />
       <div className={classes.paper}>
         <img src={logo} alt={"logo"} />
-        <p>Entrar</p>
+        <p>Cadastrar</p>
         <form className={classes.form} onSubmit={onClickSave} noValidate>
           <TextField
             name={"name"}
