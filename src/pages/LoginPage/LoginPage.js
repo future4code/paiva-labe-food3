@@ -1,23 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import { useStyles } from "./styled";
 import logo from "../../assets/logo-future-eats.png";
 import { Text } from "./styled";
-import { StyledButton } from "./styled";
+import { StyledButton, StyledFormControl } from "./styled";
 import { login } from "../../services/login";
+import {
+  TextField,
+  IconButton,
+  InputLabel,
+  OutlinedInput,
+} from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 import { useHistory } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
+import clsx from "clsx";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
 
 export default function LoginPage() {
+  const classes = useStyles();
   const toast = useToast();
   const { form, onChange, cleanFields } = useForm({
     email: "",
     password: "",
   });
+  const [values, setValues] = useState({
+    password: "",
+    showPassword: false,
+    error: false,
+  });
+
   const history = useHistory();
 
   const onClickLogin = async (event) => {
@@ -52,8 +66,18 @@ export default function LoginPage() {
       });
     }
   };
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
 
-  const classes = useStyles();
+  const handlePassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -74,19 +98,37 @@ export default function LoginPage() {
             autoComplete="email"
             autoFocus
           />
-          <TextField
+
+          <StyledFormControl
+            className={clsx(classes.margin, classes.textField)}
             variant="outlined"
-            margin="normal"
-            required
             fullWidth
-            name="password"
-            value={form.password}
-            onChange={onChange}
-            label="Mínimo 6 caracteres"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
+          >
+            <InputLabel htmlFor="outlined-adornment-password">
+              Senha *
+            </InputLabel>
+            <OutlinedInput
+              id="password"
+              name={"password"}
+              placeholder="Mínimo 6 caracteres"
+              inputProps={{ minlength: 6, maxLength: 12 }}
+              type={values.showPassword ? "text" : "password"}
+              value={(values.password, form.password)}
+              required
+              onChange={(handleChange("password"), onChange)}
+              endAdornment={
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handlePassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              }
+              labelWidth={60}
+            />
+          </StyledFormControl>
           <StyledButton
             type="submit"
             fullWidth
