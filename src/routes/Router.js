@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from '../pages/HomePage/HomePage';
 import LoginPage from '../pages/LoginPage/LoginPage'
 import MenuPage from '../pages/MenuPage/MenuPage'
-import SignUpPage from '../pages/SignupPage/SignupPage'
+import SignupPage from '../pages/SignupPage/SignupPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import SearchPage from '../pages/SearchPage/SearchPage'
 import RestaurantPage from '../pages/RestaurantPage/RestaurantPage';
@@ -29,7 +29,7 @@ const Router = () => {
           </Route>
       
           <Route exact path={"/signup"}>
-            <SignUpPage />
+            <SignupPage />
           </Route>
   
   
