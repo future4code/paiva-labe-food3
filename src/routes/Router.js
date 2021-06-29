@@ -1,60 +1,50 @@
-
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
-import SignupPage from "../pages/SignupPage/SignupPage";
+import LoginPage from "../pages/LoginPage/LoginPage";
+import SignUpPage from "../pages/SignupPage/SignupPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
-import Restaurant from "../pages/Restaurant/Restaurant";
-import SearchPage from "../pages/SearchPage/SearchPage.js";
-// import LoginPage from "../pages/LoginPage/LoginPage";
-import MyCartPage from "../pages/MyCartPage/MyCartPage.js";
-
-
-
-
+import SearchPage from "../pages/SearchPage/SearchPage";
+import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 
 const Router = () => {
-    return (
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={"/"}>
+          <HomePage />
+        </Route>
 
-      <BrowserRouter>
-        <Switch>
-          <Route exact path={"/"}>
-            <HomePage />
-          </Route>
-  
-          {/* <Route exact path={"/login"}>
-           <LoginPage />
-             </Route> */}
-  
-          <Route exact path={"/signup"}>
-            <SignupPage />
-          </Route>
-  
-  
-          <Route exact path={"/Mycart"}>
-            </Route>
-  
-  
-          <Route exact path={"/search"}>
-            <SearchPage />
-          </Route>
-  
-          <Route exact path={"/restaurant/:idRest"}>
-            <Restaurant />
-          </Route>
-  
-          <Route exact path={"/Profile"}>
-            <ProfilePage />
-          </Route>
-  
-          <Route>
-            <div>Página não encontrada</div>
-          </Route>
+        <Route exact path={"/login"}>
+          <LoginPage />
+        </Route>
 
-          </Switch>
-          </BrowserRouter>
+        <Route exact path={"/signup"}>
+          <SignUpPage />
+        </Route>
 
-    );
-  };
-  
-  export default Router;
+        <Route exact path={"/cadastar-endereco"}></Route>
+
+        <Route exact path={"/cart"}></Route>
+
+        <Route exact path={"/profile"}>
+          <ProfilePage />
+        </Route>
+
+        <Route exact path={"/search"}>
+          <SearchPage />
+        </Route>
+
+        <Route exact path={"/editAddressPage"}></Route>
+
+        <Route exact path={"/restaurantes"}>
+          <RestaurantPage />
+        </Route>
+        <Route>
+          <div>Página não encontrada</div>
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
+export default Router;
