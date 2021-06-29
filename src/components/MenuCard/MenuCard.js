@@ -8,35 +8,41 @@ import { BASE_URL } from '../../constants/urls';
 import UseRequestApi from '../../hooks/UseRequestApi';
 import { MenuContainer } from './styled';
 import { useParams } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
 
 const MenuCard = () => {
     const params = useParams();
     const restaurantDetail = UseRequestApi(`${BASE_URL}/restaurants/${params.idRest}`, [])
     
-
-    const MenuList = restaurantDetail.restaurant && restaurantDetail.restaurant.products && restaurantDetail.restaurant.products.map((product)=>{
+    const MenuList = restaurantDetail.restaurant && restaurantDetail.restaurant.products &&
+     restaurantDetail.restaurant.products.map((product)=>{
       return(
-        <Card className={"CardMenu"}>      
-       <CardActionArea key={"1"} >
-             <CardMedia
-             className={"media"}
-             image={product.photoUrl}
-             title={product.name}
-           />
-           <CardContent>
-             <Typography gutterBottom variant="h5" component="h2">
-             {product.name}
-             </Typography>
-             <Typography variant="body2" color="textSecondary" component="p">
-              {product.description}
-             </Typography>
-             <Typography variant="body2" color="textSecondary" component="p">
-               R$ {product.price}
-             </Typography>
-           </CardContent>
-          </CardActionArea>
-          </Card>                    
+        <Card className={"root"}>
+        <CardMedia
+         className={"cover"}
+         image={product.photoUrl}
+         title={product.name}
+       />
+       <div className={"details"}>
+         <CardContent className={"content"}>
+           <Typography className={"name"} component="h8" variant="h8">
+           {product.name}
+           </Typography>
+           <Typography className={"description"} variant="subtitle1" color="textSecondary">
+           {product.description}
+           </Typography>
+           <Typography className={"price"}variant="body2" color="textSecondary" component="p">
+            R$ {product.price}
+          </Typography>
+         </CardContent>
+            </div>
+            <div className={"controls"}>
+            <Button className={"Rectangle"}>adicionar</Button>
+            </div>
+       
+     </Card>
+           
       )
     })
 
