@@ -1,30 +1,33 @@
+
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import HomePage from "../pages/HomeHage/HomePage";
-import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import HomePage from "../pages/HomePage/HomePage";
+import SignupPage from "../pages/SignupPage/SignupPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import Restaurant from "../pages/Restaurant/Restaurant";
-import SearchPage from "../pages/searchPage/SearchPage.js";
-import LoginPage from "../pages/loginPage/LoginPage";
+import SearchPage from "../pages/SearchPage/SearchPage.js";
+// import LoginPage from "../pages/LoginPage/LoginPage";
 import MyCartPage from "../pages/MyCartPage/MyCartPage.js";
+
 
 
 
 
 const Router = () => {
     return (
+
       <BrowserRouter>
         <Switch>
           <Route exact path={"/"}>
             <HomePage />
           </Route>
   
-          <Route exact path={"/login"}>
+          {/* <Route exact path={"/login"}>
            <LoginPage />
-             </Route>
+             </Route> */}
   
           <Route exact path={"/signup"}>
-            <SignUpPage />
+            <SignupPage />
           </Route>
   
   
@@ -37,7 +40,7 @@ const Router = () => {
           </Route>
   
           <Route exact path={"/restaurant/:idRest"}>
-            <Restaurants />
+            <Restaurant />
           </Route>
   
           <Route exact path={"/Profile"}>
@@ -47,8 +50,10 @@ const Router = () => {
           <Route>
             <div>Página não encontrada</div>
           </Route>
+
           </Switch>
           </BrowserRouter>
+
     );
   };
   
