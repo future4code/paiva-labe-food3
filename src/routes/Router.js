@@ -5,7 +5,7 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import SignUpPage from "../pages/SignupPage/SignupPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import SearchPage from "../pages/SearchPage/SearchPage";
-import Restaurants from "../pages/Restaurant/Restaurant";
+import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 
 const Router = () => {
   return (
@@ -38,7 +38,7 @@ const Router = () => {
         <Route exact path={"/editAddressPage"}></Route>
 
         <Route exact path={"/restaurantes"}>
-          <Restaurants />
+          <RestaurantPage />
         </Route>
         <Route>
           <div>Página não encontrada</div>
