@@ -1,0 +1,36 @@
+import styled from "styled-components";
+
+export const HeaderContainer = styled.div`
+  width: 10.938rem;
+  height: 2.75rem;
+  margin: 1.25rem 5.75rem 0 3.373rem;
+  padding: 0.813rem 4.125rem 0.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+     padding:0;
+    margin:0;
+    width: 100vw;
+    border-bottom:0.5px solid rgba(0, 0, 0, 0.25);
+
+  .Back{
+    grid-column: 1/2;
+    width: 1.44rem;
+    height: 1.5rem;
+    margin: 0.625rem 3.373rem 0.625rem 1rem;
+    object-fit: contain;
+ 
+  }
+  .title{
+    margin: auto;
+    width: 5.688rem;
+    height: 1.188rem;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    text-align: center;
+  }
+`;

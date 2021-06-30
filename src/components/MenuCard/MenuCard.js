@@ -8,7 +8,7 @@ import { BASE_URL } from "../../constants/urls";
 import UseRequestApi from "../../hooks/UseRequestApi";
 import { MenuContainer } from "./styled";
 import { useParams } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+
 
 const MenuCard = () => {
   const params = useParams();
@@ -56,7 +56,7 @@ const MenuCard = () => {
                   color="textPrimary"
                   component="p"
                 >
-                  R$ {product.price}0
+                  R${product.price}0
                 </Typography>
                 <button className={"Rectangle"}>adicionar</button>
               </div>
