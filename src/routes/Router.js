@@ -8,6 +8,7 @@ import SearchPage from "../pages/SearchPage/SearchPage";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import MenuPage from '../pages/MenuPage/MenuPage';
 import AddressPage from "../pages/AddressPage/AddressPage";
+import MyCartPage from "../pages/MyCartPage/MyCartPage";
 
 const Router = () => {
   return (
@@ -26,7 +27,9 @@ const Router = () => {
         <Route exact path={"/cadastrar-endereco"}>
           <AddressPage/>
         </Route>
-        <Route exact path={"/cart"}></Route>
+        <Route exact path={"/cart"}>
+          <MyCartPage />
+        </Route>
         <Route exact path={"/profile"}>
           <ProfilePage />
         </Route>
