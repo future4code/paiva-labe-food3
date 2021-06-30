@@ -24,7 +24,7 @@ const MenuCard = () => {
          image={product.photoUrl}
          title={product.name}
        />
-       <div className={"details"}>
+         <div className={"details"}>
          <CardContent className={"content"}>
            <Typography className={"name"} component="h8" variant="h8">
            {product.name}
@@ -33,12 +33,12 @@ const MenuCard = () => {
            {product.description}
            </Typography>
            <Typography className={"price"}variant="body2" color="textSecondary" component="p">
-            R$ {product.price}
-          </Typography>
+            R$ {product.price}0
+          </Typography>          
          </CardContent>
             </div>
             <div className={"controls"}>
-            <Button className={"Rectangle"}>adicionar</Button>
+              <button className={"Rectangle"}>adicionar</button>
             </div>
        
      </Card>
@@ -61,13 +61,15 @@ const MenuCard = () => {
              </Typography>
              <Typography variant="body2" color="textSecondary" component="p">
               {restaurantDetail.restaurant && restaurantDetail.restaurant.category}
-             </Typography>
+             </Typography>   
+             <div className={"shippingTimeContainer"}>          
              <Typography variant="body2" color="textSecondary" component="p">
-               Frete R$ {restaurantDetail.restaurant && restaurantDetail.restaurant.shipping}
-             </Typography>
+               {restaurantDetail.restaurant && restaurantDetail.restaurant.deliveryTime} min                  
+             </Typography>             
              <Typography variant="body2" color="textSecondary" component="p">
-               {restaurantDetail.restaurant && restaurantDetail.restaurant.deliveryTime} min
+               Frete R$ {restaurantDetail.restaurant && restaurantDetail.restaurant.shipping},00
              </Typography>
+             </div>
              <Typography variant="body2" color="textSecondary" component="p">
                {restaurantDetail.restaurant && restaurantDetail.restaurant.address}
              </Typography>
