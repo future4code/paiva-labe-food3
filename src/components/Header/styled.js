@@ -8,10 +8,12 @@ export const HeaderContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0;
+  background-color: #ffffff;
   margin: 0;
   width: 100vw;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.25);
-  position: fixed;
+  display: flex;
+  top:0;
 
   .Back {
     grid-column: 1/2;
