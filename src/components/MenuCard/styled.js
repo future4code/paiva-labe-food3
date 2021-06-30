@@ -17,9 +17,13 @@ letter-spacing: -0.39px;
   }
   .description{
     font-size: 0.75rem;
+    letter-spacing: -0.29px;
+    /* margin: 8rem 0 1rem;
+  padding: 0.5rem 1rem 0; */
   }
   .name{
     font-size: 1rem;
+    background-color:green;
   }
   .price{
     font-size: 1rem;
@@ -33,15 +37,22 @@ letter-spacing: -0.39px;
     display:flex;
     max-width: 20.5rem;
     max-height:7rem;
+    flex-wrap: wrap;
+    padding-right:0;
   }
   .details {
+    background-color: pink;
+    padding:0;
+    margin:0;
     display:flex;
     flex-direction: column;
+    justify-content: space-between;
     height:20rem;
   }
   .content {
     width: 12.5rem;
-    padding:0;
+    padding-right:0;
+    margin-right:0;
     /* padding-top:16rem; */
     /* flex: '1 0 auto', */
   }
@@ -54,8 +65,8 @@ letter-spacing: -0.39px;
   .controls {
    display: flex;
    position: relative;
-   /* flex-direction: column; */
-   align-items: flex-end;
+   background-color: lightblue;
+   justify-content: space-between;
     /* paddingLeft: theme.spacing(1),
     paddingBottom: theme.spacing(1), */
   }

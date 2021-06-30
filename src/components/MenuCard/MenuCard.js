@@ -26,21 +26,21 @@ const MenuCard = () => {
        />
          <div className={"details"}>
          <CardContent className={"content"}>
-           <Typography className={"name"} component="h8" variant="h8">
+           <Typography className={"name"} component="h8" color="primary" variant="h8">
            {product.name}
            </Typography>
            <Typography className={"description"} variant="subtitle1" color="textSecondary">
            {product.description}
-           </Typography>
-           <Typography className={"price"}variant="body2" color="textSecondary" component="p">
+           </Typography> 
+           <div className={"controls"}>
+           <Typography className={"price"}variant="body2" color="textPrimary" component="p">
             R$ {product.price}0
-          </Typography>          
+          </Typography>
+           <button className={"Rectangle"}>adicionar</button>
+            </div>                   
          </CardContent>
             </div>
-            <div className={"controls"}>
-              <button className={"Rectangle"}>adicionar</button>
-            </div>
-       
+                   
      </Card>
            
       )
@@ -56,7 +56,7 @@ const MenuCard = () => {
              title={restaurantDetail.restaurant && restaurantDetail.restaurant.name}
            />
            <CardContent>
-             <Typography gutterBottom variant="h5" component="h2">
+             <Typography gutterBottom variant="h5" color="primary" component="h2">
              {restaurantDetail.restaurant && restaurantDetail.restaurant.name}
              </Typography>
              <Typography variant="body2" color="textSecondary" component="p">
