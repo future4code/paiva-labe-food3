@@ -7,6 +7,7 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import SearchPage from "../pages/SearchPage/SearchPage";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import MenuPage from '../pages/MenuPage/MenuPage';
+import AddressPage from '../pages/AddressPage/AddressPage'
 
 const Router = () => {
   return (
@@ -18,9 +19,13 @@ const Router = () => {
         <Route exact path={"/login"}>
           <LoginPage />
         </Route>
+
         <Route exact path={"/signup"}>
           <SignUpPage />
         </Route>
+        <Route exact path='/endereco' >
+       <AddressPage />
+       </Route>
         <Route exact path={"/cadastar-endereco"}></Route>
         <Route exact path={"/cart"}></Route>
         <Route exact path={"/profile"}>
