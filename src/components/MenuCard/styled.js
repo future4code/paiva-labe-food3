@@ -18,12 +18,13 @@ letter-spacing: -0.39px;
   .description{
     font-size: 0.75rem;
     letter-spacing: -0.29px;
-    /* margin: 8rem 0 1rem;
-  padding: 0.5rem 1rem 0; */
+    /* margin: 8rem 0 1rem; */
+  /* padding: 0.5rem 1rem 0; */
+  padding-left: 1rem;
   }
   .name{
+    padding-top: 1.125rem;
     font-size: 1rem;
-    background-color:green;
   }
   .price{
     font-size: 1rem;
@@ -44,17 +45,20 @@ letter-spacing: -0.39px;
     background-color: pink;
     padding:0;
     margin:0;
+    width: 14.5rem;
+    height: 100%;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    height:20rem;
+    /* height:20rem; */
   }
   .content {
-    width: 12.5rem;
+    padding-left: 1rem;
+    width: 13.5rem;
+    display:flex;
     padding-right:0;
     margin-right:0;
-    /* padding-top:16rem; */
-    /* flex: '1 0 auto', */
+    justify-content: space-between;
   }
   .cover {
   min-width: 6rem;
@@ -63,9 +67,9 @@ letter-spacing: -0.39px;
   object-fit: contain;
   }
   .controls {
+    padding-left: 1rem;
    display: flex;
    position: relative;
-   background-color: lightblue;
    justify-content: space-between;
     /* paddingLeft: theme.spacing(1),
     paddingBottom: theme.spacing(1), */
