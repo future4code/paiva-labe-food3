@@ -24,23 +24,23 @@ const MenuCard = () => {
          image={product.photoUrl}
          title={product.name}
        />
-       <div className={"details"}>
+         <div className={"details"}>
          <CardContent className={"content"}>
-           <Typography className={"name"} component="h8" variant="h8">
+           <Typography className={"name"} component="h8" color="primary" variant="h8">
            {product.name}
            </Typography>
            <Typography className={"description"} variant="subtitle1" color="textSecondary">
            {product.description}
-           </Typography>
-           <Typography className={"price"}variant="body2" color="textSecondary" component="p">
-            R$ {product.price}
+           </Typography> 
+           <div className={"controls"}>
+           <Typography className={"price"}variant="body2" color="textPrimary" component="p">
+            R$ {product.price}0
           </Typography>
+           <button className={"Rectangle"}>adicionar</button>
+            </div>                   
          </CardContent>
             </div>
-            <div className={"controls"}>
-            <Button className={"Rectangle"}>adicionar</Button>
-            </div>
-       
+                   
      </Card>
            
       )
@@ -56,18 +56,20 @@ const MenuCard = () => {
              title={restaurantDetail.restaurant && restaurantDetail.restaurant.name}
            />
            <CardContent>
-             <Typography gutterBottom variant="h5" component="h2">
+             <Typography gutterBottom variant="h5" color="primary" component="h2">
              {restaurantDetail.restaurant && restaurantDetail.restaurant.name}
              </Typography>
              <Typography variant="body2" color="textSecondary" component="p">
               {restaurantDetail.restaurant && restaurantDetail.restaurant.category}
-             </Typography>
+             </Typography>   
+             <div className={"shippingTimeContainer"}>          
              <Typography variant="body2" color="textSecondary" component="p">
-               Frete R$ {restaurantDetail.restaurant && restaurantDetail.restaurant.shipping}
-             </Typography>
+               {restaurantDetail.restaurant && restaurantDetail.restaurant.deliveryTime} min                  
+             </Typography>             
              <Typography variant="body2" color="textSecondary" component="p">
-               {restaurantDetail.restaurant && restaurantDetail.restaurant.deliveryTime} min
+               Frete R$ {restaurantDetail.restaurant && restaurantDetail.restaurant.shipping},00
              </Typography>
+             </div>
              <Typography variant="body2" color="textSecondary" component="p">
                {restaurantDetail.restaurant && restaurantDetail.restaurant.address}
              </Typography>
