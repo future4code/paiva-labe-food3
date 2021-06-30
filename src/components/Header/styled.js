@@ -23,14 +23,14 @@ export const HeaderContainer = styled.div`
   .title{
     margin: auto;
     width: 5.688rem;
-  height: 1.188rem;
-  font-family: Roboto;
-  font-size: 1rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.39px;
-  text-align: center;
+    height: 1.188rem;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    text-align: center;
   }
 `;
