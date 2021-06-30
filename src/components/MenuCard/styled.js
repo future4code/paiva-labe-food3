@@ -42,7 +42,6 @@ letter-spacing: -0.39px;
     padding-right:0;
   }
   .details {
-    background-color: pink;
     padding:0;
     margin:0;
     width: 14.5rem;
@@ -81,7 +80,9 @@ letter-spacing: -0.39px;
   margin: 0.438rem 0 0 0.5rem;
   padding: 0.5rem 1.438rem 0.563rem 1.5rem;
   border-radius: 8px 0;
-  border: solid 1px #e02020;
+  border: solid 1px black;
+  background-color: white;
+  cursor: pointer;
   }
 
 .shippingTimeContainer {
