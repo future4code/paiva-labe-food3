@@ -6,7 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { BASE_URL } from '../../constants/urls';
 import UseRequestApi from '../../hooks/UseRequestApi';
-import { RestaurantCardContainer } from './styled';
+import { RestaurantCardContainer, ContainerTimeShipping } from './styled';
 import { useHistory } from "react-router-dom";
 
 const RestaurantCard = () => {
@@ -29,15 +29,17 @@ const RestaurantCard = () => {
              title={r.name}
            />
            <CardContent>
-             <Typography gutterBottom variant="h5" component="h2">
+             <Typography gutterBottom variant="h7" component="h7">
                {r.name}
              </Typography>
+             <ContainerTimeShipping>
              <Typography variant="body2" color="textSecondary" component="p">
                {r.deliveryTime} min
              </Typography>
              <Typography variant="body2" color="textSecondary" component="p">
-               frete R${r.shipping}
+               Frete R${r.shipping}
              </Typography>
+            </ContainerTimeShipping>
            </CardContent>
           </CardActionArea>
           </Card>          
