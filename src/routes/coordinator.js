@@ -30,6 +30,12 @@ export const goToRestaurant = (history, idRest) => {
     history.push(`/restaurant/${idRest}`);
 };
 
+
+export const goToAddressPage = (history) => {
+    history.push('/endereco');
+  };
+
+
 export const goToLastPage = (history) => {
     history.goBack();
 };
