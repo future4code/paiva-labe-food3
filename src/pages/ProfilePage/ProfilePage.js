@@ -10,11 +10,13 @@ import { BASE_URL } from '../../constants/urls';
 import CardHistory from "./CardHistory";
 import { useHistory } from "react-router-dom";
 import { goToEditProfile, goToEditAddress } from '../../routes/coordinator'
-
+import {useGlobalStates, useGlobalSetters} from '../../global/GlobalState'
 
 export default function ProfilePage() {
   const history = useHistory()
-  const [user, setUser] = useState({})
+  const {user} = useGlobalStates()
+  const {setUser} = useGlobalSetters()
+
 
   const order = {
     totalPrice: 20,
@@ -23,19 +25,6 @@ export default function ProfilePage() {
     expiresAt: 1574663615364,
   };
 
-  useEffect(() => {
-    axios.get(`${BASE_URL}/profile`, {
-      headers:{
-        auth: localStorage.getItem('token')
-      }
-  })
-  .then((res) => {
-      setUser(res.data.user)
-  })
-  .catch((err) => {
-      console.log(err) //////////////////////// ARRUMAR ERROS AQUI !!!!!!!!!!!!!!!!!!!!!
-  })
-}, [])
 
   const changeProfile = () => {
     goToEditProfile(history)
