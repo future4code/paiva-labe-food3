@@ -8,7 +8,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-
+    
+    .address{
+        background-color: ${terciaryColor};
+    }
 `
 
 export const PersonalInformation = styled.div`
@@ -17,10 +20,6 @@ export const PersonalInformation = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     padding: 1rem;
-    .address{
-        background-color: blue;
-    }
-    
 `
 
 

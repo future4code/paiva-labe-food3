@@ -5,7 +5,6 @@ import HomeIcon from '@material-ui/icons/Home';
 import PersonOutline  from '@material-ui/icons/PersonOutline';
 import { Container, PersonalInformation, OrderHistory} from './styled'
 
-
 export default function ProfilePage() {
     const user = {
           "id": "De8UACSFgFySnKdXm5hI",
@@ -28,8 +27,8 @@ export default function ProfilePage() {
                 <button><CreateIcon/></button>
             </PersonalInformation>
 
-            <PersonalInformation className='address'>
-                <div>
+            <PersonalInformation className={"address"}>
+                <div >
                     <p>Endereço cadastrado</p>
                     <p>{user.address} X</p>
                 </div>
@@ -40,6 +39,7 @@ export default function ProfilePage() {
             <OrderHistory>
                 Histórico de pedidos
             </OrderHistory>
+
         </Container>
     )
 }
