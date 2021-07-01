@@ -4,13 +4,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { BASE_URL } from '../../constants/urls';
-import UseRequestApi from '../../hooks/UseRequestApi';
 import { RestaurantCardContainer, ContainerTimeShipping } from './styled';
 import { useHistory } from "react-router-dom";
 
-const RestaurantCard = () => {
-    const restaurants = UseRequestApi(`${BASE_URL}/restaurants`, {})
+const RestaurantCard = (props) => {
     const history = useHistory();
 
     const handleRestaurant = (id) =>{
@@ -18,8 +15,8 @@ const RestaurantCard = () => {
     }
     
  const RestaurantsList =
-   restaurants.restaurants &&
-   restaurants.restaurants.map((r) => {
+   props.restaurants.restaurants &&
+   props.restaurants.restaurants.map((r) => {
      return (  
      <Card className={"CardRestaurants"}>      
        <CardActionArea key={r.id} onClick={()=>handleRestaurant(r.id)} >
@@ -29,7 +26,8 @@ const RestaurantCard = () => {
              title={r.name}
            />
            <CardContent>
-             <Typography gutterBottom variant="h7" color="primary" component="h7">
+             <Typography gutterBottom 
+             color="primary" >
                {r.name}
              </Typography>
              <ContainerTimeShipping>

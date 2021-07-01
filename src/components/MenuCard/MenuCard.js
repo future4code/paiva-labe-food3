@@ -58,7 +58,7 @@ const MenuCard = () => {
                 >
                   R${product.price}0
                 </Typography>
-                <button className={"Rectangle"}>adicionar</button>
+                <button className={"Rectangle"} onClick={""}>adicionar</button>
               </div>
             </CardContent>
         </Card>

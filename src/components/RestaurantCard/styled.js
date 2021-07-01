@@ -4,6 +4,7 @@ export const RestaurantCardContainer = styled.div`
 display: grid;
 gap:20px;
 padding:1rem;
+margin-bottom:3rem;
 
   .CardRestaurants {
     max-width: 20.5rem;
