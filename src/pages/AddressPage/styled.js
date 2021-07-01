@@ -34,3 +34,19 @@ export const StyledButton = styled(Button)`
 export const StyledFormControl = styled(FormControl)`
   margin: 1rem 0;
 `
+export const PContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 640px;
+  margin: 25px 0 0;
+  //padding: 0 0 36px;
+`;
+export const BackButton = styled.img`
+  width: 23px;
+  height: 24px;
+  margin: 10px 321px 0 16px;
+  object-fit: contain;
+  border-bottom: 1px solid;
+`;
