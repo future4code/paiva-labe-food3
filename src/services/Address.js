@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
 
-export const addAdress = (body) => {
+export const addAdress = (body, history,clean) => {
     axios
     .put(`${BASE_URL}/address`, body, {
         headers: {
@@ -10,8 +10,8 @@ export const addAdress = (body) => {
     })
     .then((response) => {
         localStorage.setItem("token", response.data.token);
-        //goToHomePage(history)
-
+        history.push("/restaurant")
+        clean()
     })
     .catch((error) => {
         alert("Por favor, confirme as informações inseridas.");

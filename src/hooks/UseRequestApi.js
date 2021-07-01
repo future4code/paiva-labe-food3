@@ -14,7 +14,13 @@ const useRequestApi = (url, initialState) => {
       })
       .then((res) =>  { 
         setData(res.data)})
-      .catch((err) => alert(err));
+      .catch((err) => {
+        if(err.response.data.message){
+        alert(err.response.data.message)
+        } else{
+          alert(err)
+        }
+      });
   }, [url,initialState]);
 
   return data;

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import { useStyles } from "./styled";
-import { StyledButton } from "./styled";
+import { StyledButton, VoltarDiv } from "./styled";
 import useForm from "../../hooks/useForm";
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import clsx from "clsx";
 import {
   TextField,
@@ -13,34 +14,41 @@ import {
   InputLabel,
   OutlinedInput,
 } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import { addAdress } from "../../services/Address";
+
 
 export default function AddressPage() {
   const classes = useStyles();
   const history = useHistory();
   const { form, onChange, cleanFields } = useForm({
-    logradouro: "",
-    numero: "",
-    complemento: "",
-    bairro: "",
-    cidade: "",
-    estado: "",
+    street: "",
+    number: "",
+    complement: "",
+    neighbourhood: "",
+    city: "",
+    state: "",
   });
 
   const onClickSave = async (event) => {
     event.preventDefault();
-    cleanFields();
+    addAdress(form, history, cleanFields)
     //implementar o axios
   };
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
-        <p>Meu endereço</p>
+
+        <VoltarDiv>
+        <ArrowBackIosIcon onClick={null} className={".back"}/>
+        </VoltarDiv>
+
+        <Typography className={classes.paper2} component="p">Meu endereço</Typography>
         <form className={classes.form} onSubmit={onClickSave} noValidate>
           <TextField
-            name={"logradouro"}
-            value={form.logradouro}
+            name={"street"}
+            value={form.street}
             onChange={onChange}
             className={clsx(classes.margin, classes.textField)}
             label={"Logradouro"}
@@ -53,8 +61,8 @@ export default function AddressPage() {
           />
 
           <TextField
-            name={"numero"}
-            value={form.numero}
+            name={"number"}
+            value={form.number}
             onChange={onChange}
             className={clsx(classes.margin, classes.textField)}
             label={"Número"}
@@ -67,8 +75,8 @@ export default function AddressPage() {
           />
 
           <TextField
-            name={"complemento"}
-            value={form.complemento}
+            name={"complement"}
+            value={form.complement}
             onChange={onChange}
             type={"text"}
             className={clsx(classes.margin, classes.textField)}
@@ -76,12 +84,11 @@ export default function AddressPage() {
             placeholder={"Apto. / Bloco"}
             margin={"normal"}
             variant={"outlined"}
-            required
             fullWidth
           />
           <TextField
-            name={"bairro"}
-            value={form.bairro}
+            name={"neighbourhood"}
+            value={form.neighbourhood}
             onChange={onChange}
             type={"text"}
             className={clsx(classes.margin, classes.textField)}
@@ -93,8 +100,8 @@ export default function AddressPage() {
             fullWidth
           />
           <TextField
-            name={"cidade"}
-            value={form.cidade}
+            name={"city"}
+            value={form.city}
             onChange={onChange}
             type={"text"}
             className={clsx(classes.margin, classes.textField)}
@@ -106,8 +113,8 @@ export default function AddressPage() {
             fullWidth
           />
           <TextField
-            name={"estado"}
-            value={form.estado}
+            name={"state"}
+            value={form.state}
             onChange={onChange}
             type={"text"}
             className={clsx(classes.margin, classes.textField)}
@@ -129,7 +136,7 @@ export default function AddressPage() {
             Salvar
           </StyledButton>
         </form>
-      </div>
+
     </Container>
   );
 }
