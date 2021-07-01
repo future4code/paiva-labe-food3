@@ -7,20 +7,22 @@ export const HeaderContainer = styled.div`
   padding: 0.813rem 4.125rem 0.75rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-     padding:0;
-    margin:0;
-    width: 100vw;
-    border-bottom:0.5px solid rgba(0, 0, 0, 0.25);
+  padding: 0;
+  background-color: #ffffff;
+  margin: 0;
+  width: 100vw;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.25);
+  display: flex;
+  top:0;
 
-  .Back{
+  .Back {
     grid-column: 1/2;
     width: 1.44rem;
     height: 1.5rem;
     margin: 0.625rem 3.373rem 0.625rem 1rem;
     object-fit: contain;
- 
   }
-  .title{
+  .title {
     margin: auto;
     width: 5.688rem;
     height: 1.188rem;

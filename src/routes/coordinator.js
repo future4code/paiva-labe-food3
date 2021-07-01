@@ -27,7 +27,7 @@ export const goToProfilePage = (history) => {
 };
 
 export const goToRestaurant = (history, idRest) => {
-    history.push(`/restaurant/${idRest}`);
+    history.push(`/restaurant`);
 };
 
 

@@ -7,7 +7,13 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import SearchPage from "../pages/SearchPage/SearchPage";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import MenuPage from '../pages/MenuPage/MenuPage';
+
 import AddressPageForm from "../pages/AddressPage/AddressPageForm";
+
+import AddressPage from "../pages/AddressPage/AddressPage";
+import MyCartPage from "../pages/MyCartPage/MyCartPage";
+
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -24,8 +30,17 @@ const Router = () => {
         <Route exact path={"/signup"}>
           <SignUpPage />
         </Route>
+
       
         <Route exact path={"/cart"}></Route>
+
+        <Route exact path={"/cadastrar-endereco"}>
+          <AddressPage/>
+        </Route>
+        <Route exact path={"/cart"}>
+          <MyCartPage />
+        </Route>
+
         <Route exact path={"/profile"}>
           <ProfilePage />
         </Route>

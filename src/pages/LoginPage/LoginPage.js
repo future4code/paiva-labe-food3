@@ -53,7 +53,7 @@ export default function LoginPage() {
           position: "top",
         });
 
-        history.push("/cadastar-endereco");
+        history.push("/cadastrar-endereco");
       }
     } else {
       toast({
