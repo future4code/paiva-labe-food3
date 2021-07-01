@@ -22,8 +22,12 @@ export const goToSearch = (history) => {
     history.push("/search");
 };
 
-export const goToProfilePage = (history) => {
-    history.push("/editProfile");
+export const goToEditAddress = (history) => {
+    history.push("/edit-address");
+};
+
+export const goToEditProfile = (history) => {
+    history.push("/edit-profile");
 };
 
 export const goToRestaurant = (history, idRest) => {
