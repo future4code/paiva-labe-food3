@@ -213,7 +213,7 @@ function SignupPage() {
             color="primary"
             className={classes.submit}
           >
-            Salvar
+            Criar
           </StyledButton>
         </form>
       </div>
