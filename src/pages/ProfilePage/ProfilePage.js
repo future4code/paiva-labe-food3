@@ -1,27 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import CreateIcon from "@material-ui/icons/Create";
 import ShoppingCarticon from "@material-ui/icons/ShoppingCart";
 import HomeIcon from "@material-ui/icons/Home";
 import PersonOutline from "@material-ui/icons/PersonOutline";
 import { Container, Header, PersonalInformation, OrderHistory } from "./styled";
+import axios from 'axios';
+import { BASE_URL } from '../../constants/urls';
 import CardHistory from "./CardHistory";
+import { useHistory } from "react-router-dom";
+import { goToEditProfile, goToEditAddress } from '../../routes/coordinator'
+
 
 export default function ProfilePage() {
-  const user = {
-    id: "De8UACSFgFySnKdXm5hI",
-    name: "Astrodev",
-    email: "astrodev@future4.com",
-    cpf: "111.111.111-11",
-    hasAddress: true,
-    address: "R. Afonso Braz, 177 - Vila N. Conceição",
-  };
+  const history = useHistory()
+  const [user, setUser] = useState({})
+
   const order = {
     totalPrice: 20,
     restaurantName: "Habibs",
     createdAt: 1574660015364,
     expiresAt: 1574663615364,
   };
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/profile`, {
+      headers:{
+        auth: localStorage.getItem('token')
+      }
+  })
+  .then((res) => {
+      setUser(res.data.user)
+  })
+  .catch((err) => {
+      console.log(err) //////////////////////// ARRUMAR ERROS AQUI !!!!!!!!!!!!!!!!!!!!!
+  })
+}, [])
+
+  const changeProfile = () => {
+    goToEditProfile(history)
+  }
+
+  const changeAddress = () => {
+    goToEditAddress(history)
+  }
 
   return (
     <>
@@ -35,11 +57,11 @@ export default function ProfilePage() {
 
         <PersonalInformation>
           <div>
-            <p>{user.name} X</p>
-            <p>{user.email} X</p>
-            <p>{user.cpf} X</p>
+            <p>{user.name} </p>
+            <p>{user.email}</p>
+            <p>{user.cpf}</p>
           </div>
-          <button>
+          <button onClick={changeProfile}>
             <CreateIcon />
           </button>
         </PersonalInformation>
@@ -47,10 +69,10 @@ export default function ProfilePage() {
         <PersonalInformation className={"address"}>
           <div>
             <p>Endereço cadastrado</p>
-            <p>{user.address} X</p>
+            <p>{user.address}</p>
           </div>
 
-          <button>
+          <button onClick={changeAddress}>
             <CreateIcon />
           </button>
         </PersonalInformation>
