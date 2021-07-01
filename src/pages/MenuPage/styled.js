@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const RestaurantContainer = styled.div`
+export const MenuPageContainer = styled.div`
 
 .loading{
   height: 90vh;
