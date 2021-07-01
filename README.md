@@ -7,8 +7,17 @@
 <h4 align="center">
   iFood Clone App with React.
 </h4>
+<div align="center">
+    <img width='400px' height='600px' alt="tela inicial" src='https://user-images.githubusercontent.com/75874462/124080920-49b05180-da21-11eb-8e2f-d65d6a1c19c1.PNG' >
+    <img width='400px' height='600px' alt="tela de login" src='https://user-images.githubusercontent.com/75874462/124080998-5f257b80-da21-11eb-877a-aed4505a0ccd.PNG' >
+</div>
+<br><br>
 
-## :eyes: [Demo on Surge](https://surge.sh/)
+<p align="center">
+  <a href="https://surge.sh/" target="_blank">
+    <img alt="Demo on Surge" src="https://user-images.githubusercontent.com/75874462/124080112-5f714700-da20-11eb-8ed4-477b2ca790c4.png">
+  </a>
+</p>
 
 
 ## :rocket: Technologies
