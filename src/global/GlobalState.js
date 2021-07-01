@@ -9,12 +9,14 @@ export const GlobalState = (props) => {
 
 
 
+
+
+
+
+
   const states = { data };
-  const setters = { setData };
-
-
-
-
+  const setters = { setData};
+ 
   return (
     <GlobalStateContext.Provider value={{ states, setters }}>
       {props.children}

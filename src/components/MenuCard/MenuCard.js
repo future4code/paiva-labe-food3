@@ -7,8 +7,13 @@ import Typography from "@material-ui/core/Typography";
 import { MenuContainer } from "./styled";
 
 
-const MenuCard = (props) => {
-  
+const MenuCard = () => {
+  const params = useParams();
+  const restaurantDetail = UseRequestApi(
+    `${BASE_URL}/restaurants/${params.idRest}`,
+    []
+  );
+
   const MenuList =
     props.restaurantDetail.restaurant &&
     props.restaurantDetail.restaurant.products &&
