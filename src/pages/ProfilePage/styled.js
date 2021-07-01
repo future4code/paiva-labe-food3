@@ -7,6 +7,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    overflow-y: auto;
     .address{
         background-color: ${terciaryColor};
     }
