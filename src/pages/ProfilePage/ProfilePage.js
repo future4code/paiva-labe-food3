@@ -5,7 +5,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import ShoppingCarticon from '@material-ui/icons/ShoppingCart' ;
 import HomeIcon from '@material-ui/icons/Home';
 import PersonOutline  from '@material-ui/icons/PersonOutline';
-import { Container, PersonalInformation, OrderHistory} from './styled'
+import { Container, Header, PersonalInformation, OrderHistory} from './styled'
 
 export default function ProfilePage() {
     const user = {
@@ -19,34 +19,38 @@ export default function ProfilePage() {
     
     return (
         <>
-        <div>
-            <Footer />
-        </div>
-        <Container>
-            <p>Meu perfil</p>
-            <PersonalInformation>
-                <div>
-                    <p>{user.name} X</p>
-                    <p>{user.email} X</p>
-                    <p>{user.cpf} X</p>
-                </div>
-                <button><CreateIcon/></button>
-            </PersonalInformation>
+            <div>
+                <Footer />
+            </div>
+            <Container>
+                <Header>
+                    <p className="tituloCenter">Meu perfil</p>
+                </Header>
 
-            <PersonalInformation className={"address"}>
-                <div >
-                    <p>Endereço cadastrado</p>
-                    <p>{user.address} X</p>
-                </div>
+                <PersonalInformation>
+                    <div>
+                        <p>{user.name} X</p>
+                        <p>{user.email} X</p>
+                        <p>{user.cpf} X</p>
+                    </div>
+                    <button><CreateIcon/></button>
+                </PersonalInformation>
 
-                <button><CreateIcon/></button>
-            </PersonalInformation>
+                <PersonalInformation className={"address"}>
+                    <div >
+                        <p>Endereço cadastrado</p>
+                        <p>{user.address} X</p>
+                    </div>
 
-            <OrderHistory>
-                Histórico de pedidos
-            </OrderHistory>
+                    <button><CreateIcon/></button>
+                </PersonalInformation>
 
-        </Container>
-    </>
+                <OrderHistory>
+                    <p>Histórico de pedidos</p>
+                    <hr className='division-orders'/>
+                </OrderHistory>
+
+            </Container>
+        </>
     )
 }

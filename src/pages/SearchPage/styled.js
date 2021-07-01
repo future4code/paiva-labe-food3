@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
-export const Search = styled.div `
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
+export const ContainerSearch = styled.div `
+    width: 100%;
+  height: 3.5rem;
+  display: flex;
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
 `
 
 
