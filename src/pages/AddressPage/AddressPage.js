@@ -7,12 +7,15 @@ import useForm from "../../hooks/useForm";
 import { useHistory } from 'react-router-dom'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import clsx from "clsx";
+import { addAdress } from '../../services/Address'
+
 import {
   TextField,
   IconButton,
   FormHelperText,
   InputLabel,
   OutlinedInput,
+  Typography,
 } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { addAdress } from "../../services/Address";
@@ -32,7 +35,9 @@ export default function AddressPage() {
 
   const onClickSave = async (event) => {
     event.preventDefault();
+
     addAdress(form, history, cleanFields)
+
     //implementar o axios
   };
 
@@ -45,6 +50,7 @@ export default function AddressPage() {
         </VoltarDiv>
 
         <Typography className={classes.paper2} component="p">Meu endereço</Typography>
+    
         <form className={classes.form} onSubmit={onClickSave} noValidate>
           <TextField
             name={"street"}
@@ -127,13 +133,15 @@ export default function AddressPage() {
           />
 
           <StyledButton
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
+
+            
+          type={"submit"}
+          variant={"contained"}
+          color={"primary"}
+          margin={"normal"}
+          fullWidth
           >
-            Salvar
+            <Typography variant="h6">Salvar</Typography>
           </StyledButton>
         </form>
 
