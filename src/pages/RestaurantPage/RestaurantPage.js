@@ -15,12 +15,7 @@ export default function Restaurant() {
     return (
         <div>
             <Header/>
-<<<<<<< HEAD
             <RestaurantCard restaurants={restaurants}/>
-=======
-<SearchPage/>
-            <RestaurantCard/>
->>>>>>> 25202f0af066ade498c69b275af3aacc5d65a71b
             <Footer />
         </div>
     )
