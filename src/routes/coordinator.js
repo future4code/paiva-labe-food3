@@ -27,8 +27,14 @@ export const goToProfilePage = (history) => {
 };
 
 export const goToRestaurant = (history, idRest) => {
-    history.push(`/restaurant/${idRest}`);
+    history.push(`/restaurant`);
 };
+
+
+export const goToAddressPage = (history) => {
+    history.push('/endereco');
+  };
+
 
 export const goToLastPage = (history) => {
     history.goBack();
