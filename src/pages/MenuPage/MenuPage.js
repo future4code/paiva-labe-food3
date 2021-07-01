@@ -5,6 +5,8 @@ import Header from '../../components/Header/Header'
 import { BASE_URL } from "../../constants/urls";
 import UseRequestApi from "../../hooks/UseRequestApi";
 import { useParams } from "react-router-dom";
+import Coke from '../../assets/cokeLoading.gif'
+import {MenuPageContainer} from './styled'
 
 export default function MenuPage() {
     useProtectedPage()
@@ -16,9 +18,9 @@ export default function MenuPage() {
 
 
     return (
-        <div>
+        <MenuPageContainer>
             <Header/>
-            <MenuCard restaurantDetail={restaurantDetail}/>
-        </div>
+            {restaurantDetail ? <MenuCard restaurantDetail={restaurantDetail}/>:<img className={"loading"} src={Coke} />}
+        </MenuPageContainer>
     )
 }
