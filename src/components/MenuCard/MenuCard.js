@@ -4,23 +4,15 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { BASE_URL } from "../../constants/urls";
-import UseRequestApi from "../../hooks/UseRequestApi";
 import { MenuContainer } from "./styled";
-import { useParams } from "react-router-dom";
 
 
-const MenuCard = () => {
-  const params = useParams();
-  const restaurantDetail = UseRequestApi(
-    `${BASE_URL}/restaurants/${params.idRest}`,
-    []
-  );
-
+const MenuCard = (props) => {
+  
   const MenuList =
-    restaurantDetail.restaurant &&
-    restaurantDetail.restaurant.products &&
-    restaurantDetail.restaurant.products.map((product) => {
+    props.restaurantDetail.restaurant &&
+    props.restaurantDetail.restaurant.products &&
+    props.restaurantDetail.restaurant.products.map((product) => {
       return (
         <Card className={"root"}>
           <CardMedia
@@ -72,10 +64,10 @@ const MenuCard = () => {
           <CardMedia
             className={"media"}
             image={
-              restaurantDetail.restaurant && restaurantDetail.restaurant.logoUrl
+              props.restaurantDetail.restaurant && props.restaurantDetail.restaurant.logoUrl
             }
             title={
-              restaurantDetail.restaurant && restaurantDetail.restaurant.name
+              props.restaurantDetail.restaurant && props.restaurantDetail.restaurant.name
             }
           />
           <CardContent>
@@ -85,28 +77,28 @@ const MenuCard = () => {
               color="primary"
               component="h2"
             >
-              {restaurantDetail.restaurant && restaurantDetail.restaurant.name}
+              {props.restaurantDetail.restaurant && props.restaurantDetail.restaurant.name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {restaurantDetail.restaurant &&
-                restaurantDetail.restaurant.category}
+              {props.restaurantDetail.restaurant &&
+                props.restaurantDetail.restaurant.category}
             </Typography>
             <div className={"shippingTimeContainer"}>
               <Typography variant="body2" color="textSecondary" component="p">
-                {restaurantDetail.restaurant &&
-                  restaurantDetail.restaurant.deliveryTime}{" "}
+                {props.restaurantDetail.restaurant &&
+                  props.restaurantDetail.restaurant.deliveryTime}{" "}
                 min
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 Frete R${" "}
-                {restaurantDetail.restaurant &&
-                  restaurantDetail.restaurant.shipping}
+                {props.restaurantDetail.restaurant &&
+                  props.restaurantDetail.restaurant.shipping}
                 ,00
               </Typography>
             </div>
             <Typography variant="body2" color="textSecondary" component="p">
-              {restaurantDetail.restaurant &&
-                restaurantDetail.restaurant.address}
+              {props.restaurantDetail.restaurant &&
+                props.restaurantDetail.restaurant.address}
             </Typography>
           </CardContent>
         </CardActionArea>
