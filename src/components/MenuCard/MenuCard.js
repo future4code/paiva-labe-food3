@@ -9,7 +9,6 @@ import UseRequestApi from "../../hooks/UseRequestApi";
 import { MenuContainer } from "./styled";
 import { useParams } from "react-router-dom";
 
-
 const MenuCard = () => {
   const params = useParams();
   const restaurantDetail = UseRequestApi(
