@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import {Button, FormControl} from "@material-ui/core";
 import styled from "styled-components";
-
+import { baseColor } from "../../constants/colors";
 export const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -11,10 +11,16 @@ export const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: "100%",
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(0),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  paper2: {
+    marginTop: theme.spacing(3),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
 }));
 
@@ -34,19 +40,21 @@ export const StyledButton = styled(Button)`
 export const StyledFormControl = styled(FormControl)`
   margin: 1rem 0;
 `
-export const PContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 640px;
-  margin: 25px 0 0;
-  //padding: 0 0 36px;
-`;
-export const BackButton = styled.img`
-  width: 23px;
-  height: 24px;
-  margin: 10px 321px 0 16px;
+export const VoltarDiv = styled.div`
+height: 4rem;
+width: 100%;
+display: flex;
+justify-content: flex-start;
+background-color: ${baseColor} ;
+  margin: 0 ;
+  padding: 0 0 0.625rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
+.back{
+  width: 1.44rem;
+  height: 1.5rem;
+  margin: 0.625rem 20.06rem 0 1rem;
   object-fit: contain;
-  border-bottom: 1px solid;
-`;
+}
+`
