@@ -41,7 +41,7 @@ export default function AddressPage() {
       <CssBaseline />
 
         <VoltarDiv>
-        <ArrowBackIosIcon onClick={null} className={".back"}/>
+        <ArrowBackIosIcon onClick={history.goBack} className={".back"}/>
         </VoltarDiv>
 
         <Typography className={classes.paper2} component="p">Meu endereço</Typography>
