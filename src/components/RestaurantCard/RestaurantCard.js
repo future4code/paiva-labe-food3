@@ -4,7 +4,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { RestaurantCardContainer, ContainerTimeShipping } from './styled';
+import { RestaurantCardContainer, ContainerTimeShipping, Content } from './styled';
 import { useHistory } from "react-router-dom";
 
 const RestaurantCard = (props) => {
@@ -25,8 +25,8 @@ const RestaurantCard = (props) => {
              image={r.logoUrl}
              title={r.name}
            />
-           <CardContent>
-             <Typography gutterBottom 
+           <Content >
+             <Typography gutterBottom className={"name"}
              color="primary" >
                {r.name}
              </Typography>
@@ -38,7 +38,7 @@ const RestaurantCard = (props) => {
                Frete R${r.shipping}
              </Typography>
             </ContainerTimeShipping>
-           </CardContent>
+           </Content>
           </CardActionArea>
           </Card>          
        );

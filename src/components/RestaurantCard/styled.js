@@ -9,7 +9,10 @@ margin-bottom:3rem;
   .CardRestaurants {
     max-width: 20.5rem;
     max-height:11.75rem;
-  
+  }
+
+  .name{
+    margin:0;
   }
 
   .media {
@@ -23,4 +26,9 @@ export const ContainerTimeShipping = styled.div`
 display:flex;
 flex-direction: row;
 justify-content: space-between;
+`
+export const Content = styled.div`
+    padding: 1rem;
+    padding-top:0.1rem;
+    font-size:1rem;
 `
