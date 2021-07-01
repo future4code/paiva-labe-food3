@@ -29,7 +29,7 @@ const RestaurantCard = () => {
              title={r.name}
            />
            <CardContent>
-             <Typography gutterBottom variant="h7" component="h7">
+             <Typography gutterBottom variant="h7" color="primary" component="h7">
                {r.name}
              </Typography>
              <ContainerTimeShipping>

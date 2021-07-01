@@ -42,7 +42,7 @@ export default function LoginPage() {
       localStorage.setItem("token", res.token);
 
       if (res.hasAddress) {
-        history.push("/restaurantes");
+        history.push("/restaurant");
       } else {
         toast({
           title: "Precisamos de mais informações suas",
@@ -53,7 +53,7 @@ export default function LoginPage() {
           position: "top",
         });
 
-        history.push("/cadastar-endereco");
+        history.push("/cadastrar-endereco");
       }
     } else {
       toast({

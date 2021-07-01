@@ -1,4 +1,6 @@
-import React from 'react';
+
+import React from 'react'
+import Footer from '../../components/Footer/Footer'
 import CreateIcon from '@material-ui/icons/Create';
 import ShoppingCarticon from '@material-ui/icons/ShoppingCart' ;
 import HomeIcon from '@material-ui/icons/Home';
@@ -16,6 +18,10 @@ export default function ProfilePage() {
       }
     
     return (
+        <>
+        <div>
+            <Footer />
+        </div>
         <Container>
             <p>Meu perfil</p>
             <PersonalInformation>
@@ -41,5 +47,6 @@ export default function ProfilePage() {
             </OrderHistory>
 
         </Container>
+    </>
     )
 }
