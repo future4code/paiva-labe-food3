@@ -1,13 +1,15 @@
 <h1 align="center">
     <img alt="logo-ifuture" src="https://user-images.githubusercontent.com/75874462/124066199-a0606000-da0e-11eb-9088-c26b76b8a9a7.png" />
-    <br>
+    <br><br>
     iFuture
 </h1>
-<br>
 
 <h4 align="center">
   iFood Clone App with React.
 </h4>
+
+## :eyes: [Demo on Surge](https://surge.sh/)
+
 
 ## :rocket: Technologies
 
