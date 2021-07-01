@@ -17,8 +17,6 @@ import {
   OutlinedInput,
   Typography,
 } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import { addAdress } from "../../services/Address";
 
 
 export default function AddressPage() {
