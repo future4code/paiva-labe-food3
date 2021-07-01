@@ -21,7 +21,7 @@ const Footer = () => {
           alt="home"
           onClick={() => goToRestaurant(history)}/>
             <IconImage src={history.location.pathname === "/cart" ? cartRed : cart}
-          alt="home"
+          alt="cart"
           onClick={() => goToMyCartPage(history)}/>
   </FooterContainer>
   )
