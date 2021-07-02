@@ -1,43 +1,88 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { MenuContainer } from "./styled";
-
+import { BASE_URL } from "../../constants/urls";
+import UseRequestApi from "../../hooks/UseRequestApi";
+import { useParams } from "react-router-dom";
+import Coke from '../../assets/cokeLoading.gif'
+import { useGlobalStates } from "../../global/GlobalState";
+import { useGlobalSetters } from "../../global/GlobalState";
+import DialogBox from './Dialog/Dialog'
 
 const MenuCard = () => {
   const params = useParams();
+  const [open, setOpen] = useState(false);
+  const [openDialog, setOpenDialog] = useState()
+  const [value, setValue] = useState()
   const restaurantDetail = UseRequestApi(
     `${BASE_URL}/restaurants/${params.idRest}`,
     []
   );
+    const {cart} = useGlobalStates()
+    const { setCart } = useGlobalSetters();
 
-  const MenuList =
-    props.restaurantDetail.restaurant &&
-    props.restaurantDetail.restaurant.products &&
-    props.restaurantDetail.restaurant.products.map((product) => {
-      return (
-        <Card className={"root"}>
-          <CardMedia
-            className={"cover"}
-            image={product.photoUrl}
-            title={product.name}
-          />
+    const handleAddCart = (productToAdd, value) => {
+      setOpen(true);
+
+      const index = cart.findIndex((productInCart) => {
+        if (productInCart.id === productToAdd.id) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+
+      if (index === -1) {
+        const productWithQuantity = {
+          ...productToAdd,
+          quantity: value,
+        };
+        const cartCopy = [...cart, productWithQuantity];
+        setCart(cartCopy);
+      } else {
+        const cartCopy = cart.map((productInCart) => {
+          if (productInCart.id === productToAdd.id) {
+            return {
+              ...productInCart,
+              quantity: value,
+            };
+          } else {
+            return productInCart;
+          }
+        });
+
+        setCart(cartCopy);
+      }
+    };
+
+    const MenuList =
+      restaurantDetail.restaurant &&
+      restaurantDetail.restaurant.products &&
+      restaurantDetail.restaurant.products.map((product) => {
+        return (
+          <Card className={"root"}>
+            <CardMedia
+              className={"cover"}
+              image={product.photoUrl}
+              title={product.name}
+            />
             <CardContent className={"details"}>
               <div className={"content"}>
-               <div className={"name"}>
-              <Typography
-                className={"name"}
-                component="h8"
-                color="primary"
-                variant="h8"
-                >
-                {product.name}
-              </Typography>
-                 </div> 
-              <p>qtd</p>
+                <div className={"name"}>
+                  <Typography
+                    className={"name"}
+                    component="h8"
+                    color="primary"
+                    variant="h8"
+                  >
+                    {product.name}
+                  </Typography>
+                </div>
+                <p>qtd</p>
               </div>
               <Typography
                 className={"description"}
@@ -55,12 +100,26 @@ const MenuCard = () => {
                 >
                   R${product.price}0
                 </Typography>
-                <button className={"Rectangle"} onClick={""}>adicionar</button>
+                <button
+                  className={"Rectangle"}
+                  onClick={() => {
+                    handleAddCart(product,value );
+                  }}
+                >
+                  adicionar
+                </button>
               </div>
             </CardContent>
-        </Card>
-      );
-    });
+            {open && <DialogBox
+              open={openDialog}
+              product
+              setValue={setValue}
+              setOpen={setOpenDialog}
+              addItemCart={handleAddCart}
+            />}
+          </Card>
+        );
+      });
 
   return (
     <MenuContainer>
@@ -69,10 +128,10 @@ const MenuCard = () => {
           <CardMedia
             className={"media"}
             image={
-              props.restaurantDetail.restaurant && props.restaurantDetail.restaurant.logoUrl
+              restaurantDetail.restaurant && restaurantDetail.restaurant.logoUrl
             }
             title={
-              props.restaurantDetail.restaurant && props.restaurantDetail.restaurant.name
+              restaurantDetail.restaurant && restaurantDetail.restaurant.name
             }
           />
           <CardContent>
@@ -82,33 +141,34 @@ const MenuCard = () => {
               color="primary"
               component="h2"
             >
-              {props.restaurantDetail.restaurant && props.restaurantDetail.restaurant.name}
+              {restaurantDetail.restaurant && restaurantDetail.restaurant.name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {props.restaurantDetail.restaurant &&
-                props.restaurantDetail.restaurant.category}
+              {restaurantDetail.restaurant &&
+                restaurantDetail.restaurant.category}
             </Typography>
             <div className={"shippingTimeContainer"}>
               <Typography variant="body2" color="textSecondary" component="p">
-                {props.restaurantDetail.restaurant &&
-                  props.restaurantDetail.restaurant.deliveryTime}{" "}
+                {restaurantDetail.restaurant &&
+                  restaurantDetail.restaurant.deliveryTime}{" "}
                 min
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 Frete R${" "}
-                {props.restaurantDetail.restaurant &&
-                  props.restaurantDetail.restaurant.shipping}
+                {restaurantDetail.restaurant &&
+                  restaurantDetail.restaurant.shipping}
                 ,00
               </Typography>
             </div>
             <Typography variant="body2" color="textSecondary" component="p">
-              {props.restaurantDetail.restaurant &&
-                props.restaurantDetail.restaurant.address}
+              {restaurantDetail.restaurant &&
+                restaurantDetail.restaurant.address}
             </Typography>
           </CardContent>
         </CardActionArea>
       </Card>
-      {MenuList}
+      {restaurantDetail? MenuList :<img className={"loading"} src={Coke} />}
+      
     </MenuContainer>
   );
 };
