@@ -1,22 +1,25 @@
 import { GlobalStateContext } from "./GlobalStateContext";
 import React, { useContext, useEffect, useState } from "react";
+import {getUserData} from '../services/user'
 
 export const GlobalState = (props) => {
     
   const [data, setData] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [user, setUser] = useState({});
+
+
   const token = localStorage.getItem("token");
 
+  
+  useEffect(() => {
+    if (token){
+      getUserData(setUser)
+    }
+}, [])
 
+  const states = { data, user };
+  const setters = { setData, setUser };
 
-
-
-
-
-
-
-  const states = { data, cart };
-  const setters = { setData, setCart};
  
   return (
     <GlobalStateContext.Provider value={{ states, setters }}>

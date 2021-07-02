@@ -7,9 +7,9 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import SearchPage from "../pages/SearchPage/SearchPage";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import MenuPage from '../pages/MenuPage/MenuPage';
-
+import EditAddress from '../pages/EditProfilePage/ProfilePageEditAddress'
+import EditProfile from '../pages/EditProfilePage/ProfilePageEditProfile'
 import AddressPageForm from "../pages/AddressPage/AddressPageForm";
-
 import AddressPage from "../pages/AddressPage/AddressPage";
 import MyCartPage from "../pages/MyCartPage/MyCartPage";
 
@@ -44,6 +44,15 @@ const Router = () => {
         <Route exact path={"/profile"}>
           <ProfilePage />
         </Route>
+
+        <Route exact path={"/edit-address"}>
+          <EditAddress />
+        </Route>
+
+        <Route exact path={"/edit-profile"}>
+          <EditProfile />
+        </Route>
+
         <Route exact path={"/search"}>
           <SearchPage />
         </Route>
