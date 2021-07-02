@@ -46,9 +46,10 @@ const test = {restaurants:filteredRestaurants}
 
                 </ContainerSearch>
             </form>
-            <RestaurantCard
-       restaurants={test}/>
-       
+            {form.search === "" ? <p> Busque por Nome de Restaurante</p>: 
+            <RestaurantCard restaurants={test}/>
+            } 
+            {filteredRestaurants.length === 0 && <p>Nao encontramos :( </p> }    
         </>
     );
 }
