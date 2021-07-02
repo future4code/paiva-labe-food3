@@ -12,14 +12,14 @@ import { useParams } from "react-router-dom";
 import Coke from '../../assets/cokeLoading.gif'
 import { useGlobalStates } from "../../global/GlobalState";
 import { useGlobalSetters } from "../../global/GlobalState";
-import DialogBox from './Dialog/Dialog'
+import DialogBox from './DialogBox/DialogBox'
 
 const MenuCard = () => {
 
   const params = useParams();
   const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState()
-  const [value, setValue] = useState()
+  const [quantity, setQuantity] = useState()
   const restaurantDetail = UseRequestApi(
     `${BASE_URL}/restaurants/${params.idRest}`,
     []
@@ -27,38 +27,38 @@ const MenuCard = () => {
     const {cart} = useGlobalStates()
     const { setCart } = useGlobalSetters();
 
-    const handleAddCart = (productToAdd, value) => {
-      setOpen(true);
+    const handleAddCart = (productToAdd) => {
+      setOpen(true)
+      console.log(productToAdd)
+      // const index = cart.findIndex((productInCart) => {
+      //   if (productInCart.id === productToAdd.id) {
+      //     return true;
+      //   } else {
+      //     return false;
+      //   }
+      // });
 
-      const index = cart.findIndex((productInCart) => {
-        if (productInCart.id === productToAdd.id) {
-          return true;
-        } else {
-          return false;
-        }
-      });
+      // if (index === -1) {
+      //   const productWithQuantity = {
+      //     ...productToAdd,
+      //     quantity: quantity,
+      //   };
+      //   const cartCopy = [...cart, productWithQuantity];
+      //   setCart(cartCopy);
+      // } else {
+      //   const cartCopy = cart.map((productInCart) => {
+      //     if (productInCart.id === productToAdd.id) {
+      //       return {
+      //         ...productInCart,
+      //         quantity: quantity,
+      //       };
+      //     } else {
+      //       return productInCart;
+      //     }
+      //   });
 
-      if (index === -1) {
-        const productWithQuantity = {
-          ...productToAdd,
-          quantity: value,
-        };
-        const cartCopy = [...cart, productWithQuantity];
-        setCart(cartCopy);
-      } else {
-        const cartCopy = cart.map((productInCart) => {
-          if (productInCart.id === productToAdd.id) {
-            return {
-              ...productInCart,
-              quantity: value,
-            };
-          } else {
-            return productInCart;
-          }
-        });
-
-        setCart(cartCopy);
-      }
+      //   setCart(cartCopy);
+      // }
     };
 
     const MenuList =
@@ -105,7 +105,7 @@ const MenuCard = () => {
                 <button
                   className={"Rectangle"}
                   onClick={() => {
-                    handleAddCart(product,value );
+                    handleAddCart(product);
                   }}
                 >
                   adicionar
@@ -113,11 +113,11 @@ const MenuCard = () => {
               </div>
             </CardContent>
             {open && <DialogBox
-              open={openDialog}
-              product
-              setValue={setValue}
-              setOpen={setOpenDialog}
-              addItemCart={handleAddCart}
+              open={open}
+              quantity={quantity}
+              setQuantity={setQuantity}
+              setOpen={setOpen}
+              // addItemCart={handleAddCart}
             />}
           </Card>
         );
