@@ -6,6 +6,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { MenuContainer } from "./styled";
 import { BASE_URL } from "../../constants/urls";
+
 import UseRequestApi from "../../hooks/UseRequestApi";
 import { useParams } from "react-router-dom";
 import Coke from '../../assets/cokeLoading.gif'
@@ -14,6 +15,7 @@ import { useGlobalSetters } from "../../global/GlobalState";
 import DialogBox from './Dialog/Dialog'
 
 const MenuCard = () => {
+
   const params = useParams();
   const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState()

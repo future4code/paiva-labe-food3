@@ -10,7 +10,7 @@ export const addAdress = (body, history,clean) => {
     })
     .then((response) => {
         localStorage.setItem("token", response.data.token);
-        history.push("/restaurant")
+        history.push("/profile")
         clean()
     })
     .catch((error) => {

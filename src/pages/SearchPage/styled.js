@@ -9,7 +9,6 @@ export const ContainerSearch = styled.div `
 `
 
 
-
 export const SearchInput = styled.div`
   display: flex; 
   align-items: center;
