@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import clsx from "clsx";
 import { NewaddAdress } from '../../services/changeInfoPerfil'
+import {useGlobalSetters} from '../../global/GlobalState'
 
 import {
   TextField,
@@ -21,6 +22,8 @@ import {
 export default function EditAddress() {
   const classes = useStyles();
   const history = useHistory();
+  const {setUser} = useGlobalSetters()
+
   const { form, onChange, cleanFields } = useForm({
     street: "",
     number: "",
@@ -30,12 +33,9 @@ export default function EditAddress() {
     state: "",
   });
 
-  const onClickSave = async (event) => {
+  const onClickSave = (event) => {
     event.preventDefault();
-
-    NewaddAdress(form, history, cleanFields)
-
-    //implementar o axios
+    NewaddAdress(form, history, cleanFields, setUser)
   };
 
   return (

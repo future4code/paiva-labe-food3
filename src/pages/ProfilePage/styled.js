@@ -42,5 +42,6 @@ export const OrderHistory = styled.div`
     padding-bottom: 5rem;
     .division-orders {
         background-color: ${darkColor};
+        height: 1px;
     }
 `
