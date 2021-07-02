@@ -8,7 +8,7 @@ import { BASE_URL } from '../../constants/urls';
 import UseRequestApi from '../../hooks/UseRequestApi';
 import Coke from '../../assets/cokeLoading.gif'
 import {RestaurantContainer} from './styled'
-
+import SearchComponent from '../../components/Search/SearchComponent';
 
 export default function Restaurant() {
     useProtectedPage();
@@ -17,7 +17,7 @@ export default function Restaurant() {
     return (
         <RestaurantContainer>
             <Header/>
-            
+            <SearchComponent/>
             {restaurants.restaurants ? <RestaurantCard restaurants={restaurants}/>: <img className={"loading"} src={Coke} alt={"loading"} />}
             <Footer />
         </RestaurantContainer>
