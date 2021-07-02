@@ -43,105 +43,103 @@ export default function AddressPage() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
 
-        <VoltarDiv>
-        <ArrowBackIosIcon onClick={history.goBack} className={".back"}/>
-        </VoltarDiv>
+      <VoltarDiv>
+        <ArrowBackIosIcon onClick={history.goBack} className={".back"} />
+      </VoltarDiv>
 
-        <Typography className={classes.paper2} component="p">Meu endereço</Typography>
-    
-        <form className={classes.form} onSubmit={onClickSave} noValidate>
-          <TextField
-            name={"street"}
-            value={form.street}
-            onChange={onChange}
-            className={clsx(classes.margin, classes.textField)}
-            label={"Logradouro"}
-            placeholder={"Rua/Av."}
-            margin={"normal"}
-            variant={"outlined"}
-            type={"text"}
-            required
-            fullWidth
-          />
+      <Typography className={classes.paper2} component="p">Meu endereço</Typography>
 
-          <TextField
-            name={"number"}
-            value={form.number}
-            onChange={onChange}
-            className={clsx(classes.margin, classes.textField)}
-            label={"Número"}
-            placeholder={"Número"}
-            margin={"normal"}
-            variant={"outlined"}
-            type={"number"}
-            required
-            fullWidth
-          />
+      <form className={classes.form} onSubmit={onClickSave} noValidate>
+        <TextField
+          name={"street"}
+          value={form.street}
+          onChange={onChange}
+          className={clsx(classes.margin, classes.textField)}
+          label={"Logradouro"}
+          placeholder={"Rua/Av."}
+          margin={"normal"}
+          variant={"outlined"}
+          type={"text"}
+          required
+          fullWidth
+        />
 
-          <TextField
-            name={"complement"}
-            value={form.complement}
-            onChange={onChange}
-            type={"text"}
-            className={clsx(classes.margin, classes.textField)}
-            label={"Complemento"}
-            placeholder={"Apto. / Bloco"}
-            margin={"normal"}
-            variant={"outlined"}
-            fullWidth
-          />
-          <TextField
-            name={"neighbourhood"}
-            value={form.neighbourhood}
-            onChange={onChange}
-            type={"text"}
-            className={clsx(classes.margin, classes.textField)}
-            label={"Bairro"}
-            placeholder={"Bairro"}
-            margin={"normal"}
-            variant={"outlined"}
-            required
-            fullWidth
-          />
-          <TextField
-            name={"city"}
-            value={form.city}
-            onChange={onChange}
-            type={"text"}
-            className={clsx(classes.margin, classes.textField)}
-            label={"Cidade"}
-            placeholder={"Cidade"}
-            margin={"normal"}
-            variant={"outlined"}
-            required
-            fullWidth
-          />
-          <TextField
-            name={"state"}
-            value={form.state}
-            onChange={onChange}
-            type={"text"}
-            className={clsx(classes.margin, classes.textField)}
-            label={"Estado"}
-            placeholder={"Estado"}
-            margin={"normal"}
-            variant={"outlined"}
-            required
-            fullWidth
-          />
+        <TextField
+          name={"number"}
+          value={form.number}
+          onChange={onChange}
+          className={clsx(classes.margin, classes.textField)}
+          label={"Número"}
+          placeholder={"Número"}
+          margin={"normal"}
+          variant={"outlined"}
+          type={"number"}
+          required
+          fullWidth
+        />
 
-          <StyledButton
+        <TextField
+          name={"complement"}
+          value={form.complement}
+          onChange={onChange}
+          type={"text"}
+          className={clsx(classes.margin, classes.textField)}
+          label={"Complemento"}
+          placeholder={"Apto. / Bloco"}
+          margin={"normal"}
+          variant={"outlined"}
+          fullWidth
+        />
+        <TextField
+          name={"neighbourhood"}
+          value={form.neighbourhood}
+          onChange={onChange}
+          type={"text"}
+          className={clsx(classes.margin, classes.textField)}
+          label={"Bairro"}
+          placeholder={"Bairro"}
+          margin={"normal"}
+          variant={"outlined"}
+          required
+          fullWidth
+        />
+        <TextField
+          name={"city"}
+          value={form.city}
+          onChange={onChange}
+          type={"text"}
+          className={clsx(classes.margin, classes.textField)}
+          label={"Cidade"}
+          placeholder={"Cidade"}
+          margin={"normal"}
+          variant={"outlined"}
+          required
+          fullWidth
+        />
+        <TextField
+          name={"state"}
+          value={form.state}
+          onChange={onChange}
+          type={"text"}
+          className={clsx(classes.margin, classes.textField)}
+          label={"Estado"}
+          placeholder={"Estado"}
+          margin={"normal"}
+          variant={"outlined"}
+          required
+          fullWidth
+        />
 
-            
+        <StyledButton
           type={"submit"}
           variant={"contained"}
           color={"primary"}
           margin={"normal"}
           fullWidth
-          >
-            <Typography variant="h6">Salvar</Typography>
-          </StyledButton>
-        </form>
+        >
+          <Typography variant="h6">Criar</Typography>
+        </StyledButton>
+      </form>
 
     </Container>
   );
