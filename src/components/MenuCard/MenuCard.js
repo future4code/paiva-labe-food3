@@ -5,9 +5,11 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { MenuContainer } from "./styled";
+import { BASE_URL } from "../../constants/urls";
+import {UseRequestApi} from "../../hooks/UseRequestApi"
+import { useParams } from "react-router";
 
-
-const MenuCard = () => {
+const MenuCard = (props) => {
   const params = useParams();
   const restaurantDetail = UseRequestApi(
     `${BASE_URL}/restaurants/${params.idRest}`,
