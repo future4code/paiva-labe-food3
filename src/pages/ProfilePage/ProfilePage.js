@@ -82,7 +82,7 @@ export default function ProfilePage() {
           restaurantName ={order.restaurantName}
           createdAt={order.createdAt} />
         </OrderHistory>
-
+        <Footer />
       </Container>
     </>
   );

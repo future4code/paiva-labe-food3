@@ -39,6 +39,7 @@ export const PersonalInformation = styled.div`
 
 export const OrderHistory = styled.div`
     padding: 0 1rem 0 1rem;
+    padding-bottom: 5rem;
     .division-orders {
         background-color: ${darkColor};
     }
