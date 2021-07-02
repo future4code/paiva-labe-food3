@@ -6,6 +6,8 @@ import SearchPage from "../../pages/SearchPage/SearchPage";
 import Footer from '../../components/Footer/Footer'
 import { BASE_URL } from '../../constants/urls';
 import UseRequestApi from '../../hooks/UseRequestApi';
+import Coke from '../../assets/cokeLoading.gif'
+import {RestaurantContainer} from './styled'
 
 
 export default function Restaurant() {
@@ -13,10 +15,10 @@ export default function Restaurant() {
     const restaurants = UseRequestApi(`${BASE_URL}/restaurants`, {})
     
     return (
-        <div>
+        <RestaurantContainer>
             <Header/>
-            <RestaurantCard restaurants={restaurants}/>
+            {restaurants.restaurants ? <RestaurantCard restaurants={restaurants}/>: <img className={"loading"} src={Coke} alt={"loading"} />}
             <Footer />
-        </div>
+        </RestaurantContainer>
     )
 }

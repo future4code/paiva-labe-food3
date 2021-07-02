@@ -17,16 +17,10 @@ export const GlobalState = (props) => {
     }
 }, [])
 
-
-
-
-
   const states = { data, user };
   const setters = { setData, setUser };
 
-
-
-
+ 
   return (
     <GlobalStateContext.Provider value={{ states, setters }}>
       {props.children}

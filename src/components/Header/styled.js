@@ -6,7 +6,7 @@ export const HeaderContainer = styled.div`
   margin: 1.25rem 5.75rem 0 3.373rem;
   padding: 0.813rem 4.125rem 0.75rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 10% 90%;
   padding: 0;
   background-color: #ffffff;
   margin: 0;
@@ -23,7 +23,8 @@ export const HeaderContainer = styled.div`
     object-fit: contain;
   }
   .title {
-    margin: auto;
+    grid-column:2/3;
+    margin: auto 1rem;
     width: 5.688rem;
     height: 1.188rem;
     font-family: Roboto;
@@ -34,5 +35,9 @@ export const HeaderContainer = styled.div`
     line-height: normal;
     letter-spacing: -0.39px;
     text-align: center;
+  }
+  .zero{
+    grid-column:1/2;
+    width:25vw;
   }
 `;

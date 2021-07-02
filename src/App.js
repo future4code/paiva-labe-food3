@@ -2,8 +2,7 @@ import React from "react";
 import Router from "./routes/Router";
 import theme from '../src/constants/theme'
 import { ThemeProvider } from '@material-ui/styles';
-import {GlobalState} from './global/GlobalState'
-
+import { GlobalState } from "./global/GlobalState";
 
 const App = () => {
   return (
