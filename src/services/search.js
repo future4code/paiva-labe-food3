@@ -10,7 +10,7 @@ export const getSearch = (setRestaurants) => {
             },
         })
         .then(response => {
-            setRestaurants(response)
+            setRestaurants(response.data.restaurants)
         })
         .catch(error => {
             console.log(error.message)
