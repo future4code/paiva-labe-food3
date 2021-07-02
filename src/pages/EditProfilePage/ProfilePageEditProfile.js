@@ -16,6 +16,7 @@ import useForm from '../../hooks/useForm'
 import {changeInfoPerfil} from '../../services/changeInfoPerfil'
 import {useHistory} from 'react-router-dom'
 
+
 export default function EditProfile() {
     const [newUser, setNewUser] = useState({})
     const classes = useStyles();
