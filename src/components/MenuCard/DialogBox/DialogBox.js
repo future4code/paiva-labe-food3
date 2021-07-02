@@ -5,10 +5,10 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import InputLabel from '@material-ui/core/InputLabel';
-import option from '@material-ui/core/option';
 import Select from '@material-ui/core/Select';
 import Switch from '@material-ui/core/Switch';
 import { useGlobalSetters } from "../../../global/GlobalState";
@@ -31,16 +31,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- export default  function DialogBox (open, setOpen,setQuantity, quantity) {
+ export default  function DialogBox (open, setOpen) {
   const classes = useStyles();
-
+const [quantity, setQuantity] = useState("")
 
   // const handleClickOpen = (props) => {
   //   setOpen(true);
     
   // };
   const handleQuantityProduct = (event) => {
- 
+    setQuantity(event.target.value)
     console.log(event)
   };
 
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
               <Select required
               onChange={handleQuantityProduct}
               
-              value={option} label="Quantidade">
+              value={quantity} label="Quantidade">
        
                 <option aria-label="None" disabled />
                 <option value={1}>1</option>
