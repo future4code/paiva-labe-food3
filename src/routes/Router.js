@@ -25,17 +25,15 @@ const Router = () => {
           <LoginPage />
         </Route>
         <Route exact path={"/cadastrar-endereco"}>
-          <AddressPageForm/>
+          <AddressPageForm />
         </Route>
         <Route exact path={"/signup"}>
           <SignUpPage />
         </Route>
-
-      
-        <Route exact path={"/cart"}></Route>
-
+                   <Route exact path={"/cart"}>
+        </Route>
         <Route exact path={"/cadastrar-endereco"}>
-          <AddressPage/>
+          <AddressPage />
         </Route>
         <Route exact path={"/cart"}>
           <MyCartPage />
@@ -59,7 +57,7 @@ const Router = () => {
         <Route exact path={"/editAddressPage"}></Route>
         <Route exact path={"/restaurant"}>
           <RestaurantPage />
-        </Route>        
+        </Route>
         <Route exact path={"/restaurant/:idRest"}>
           <MenuPage />
         </Route>

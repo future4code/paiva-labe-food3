@@ -17,6 +17,7 @@ export default function Restaurant() {
     return (
         <RestaurantContainer>
             <Header/>
+            
             {restaurants.restaurants ? <RestaurantCard restaurants={restaurants}/>: <img className={"loading"} src={Coke} alt={"loading"} />}
             <Footer />
         </RestaurantContainer>
