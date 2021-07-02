@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 export const GlobalState = (props) => {
     
   const [data, setData] = useState([]);
+  const [cart, setCart] = useState([]);
   const token = localStorage.getItem("token");
 
 
@@ -14,8 +15,8 @@ export const GlobalState = (props) => {
 
 
 
-  const states = { data };
-  const setters = { setData};
+  const states = { data, cart };
+  const setters = { setData, setCart};
  
   return (
     <GlobalStateContext.Provider value={{ states, setters }}>

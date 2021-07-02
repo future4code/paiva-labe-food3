@@ -90,10 +90,11 @@ letter-spacing: -0.39px;
 grid-template-columns: 1fr 1fr 1fr;
 }
 
-
-
-
-
-
+.loading{
+  height: 90vh;
+    position:absolute;
+    left: -15rem;
+    top:-3rem;
+}
 
 `
