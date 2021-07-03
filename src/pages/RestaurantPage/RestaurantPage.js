@@ -14,7 +14,7 @@ import Category from '../../components/Category/Category';
 export default function Restaurant() {
     useProtectedPage();
     const restaurants = UseRequestApi(`${BASE_URL}/restaurants`, {})
-    const [choice, setChoice] = useState()
+    const [choice, setChoice] = useState("")
     const categoria = []
 
 
@@ -34,7 +34,6 @@ export default function Restaurant() {
 
 
 
-    console.log(categoria)
     // const filterCategorys = category.filter((el, i, arr) => arr.indexOf(el) === i);
 
     return (
