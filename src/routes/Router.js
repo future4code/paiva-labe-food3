@@ -32,9 +32,7 @@ const Router = () => {
         </Route>
         <Route exact path={"/cart"}>
         </Route>
-        <Route exact path={"/cadastrar-endereco"}>
-          <AddressPage />
-        </Route>
+        
         <Route exact path={"/cart"}>
           <MyCartPage />
         </Route>

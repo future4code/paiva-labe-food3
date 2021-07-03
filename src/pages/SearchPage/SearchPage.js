@@ -1,10 +1,11 @@
-import { ContainerSearch, SearchInput } from './styled'
-import { InputAdornment } from '@material-ui/core';
+import { ContainerSearch, SearchInput,SearchPlacehoder } from './styled'
+import { InputAdornment, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search'
 import React, { useState, useEffect } from "react";
 import { getSearch } from '../../services/search'
 import useForm from '../../hooks/useForm';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
+
 
 const SearchPage = () => {
 
@@ -23,20 +24,19 @@ const SearchPage = () => {
     const filteredRestaurants = restaurants && restaurants.filter((restaurant) => (
         restaurant.name.toLowerCase().includes(form.search.toLowerCase())))
        
-const test = {restaurants:filteredRestaurants}
-  
-    console.log(filteredRestaurants)
-    return (
-        <>
-            <form variant="outlined" >
-                <ContainerSearch>
-                    <SearchInput>
+const filter= {restaurants:filteredRestaurants}
 
-                        
-                            <InputAdornment position="start">
-                                <SearchIcon />
-                            </InputAdornment>
-                       
+
+  
+
+    return (
+        <SearchPlacehoder>
+           
+            <form variant="outlined" >
+              
+                    <SearchInput>
+                            <SearchIcon />
+                                       
                         <input type="text"
                             name={"search"}
                             value={form.search}
@@ -44,14 +44,16 @@ const test = {restaurants:filteredRestaurants}
                             placeholder="Restaurante" />
                     </SearchInput>
 
-                </ContainerSearch>
+             
             </form>
-            {form.search === "" ? <p> Busque por Nome de Restaurante</p>: 
-            <RestaurantCard restaurants={test}/>
+            {form.search === "" ? <Typography variant="h6" align="center"> Busque por nome de restaurantes </Typography>: 
+            <RestaurantCard restaurants={filter}/>
             } 
-            {filteredRestaurants.length === 0 && <p>Nao encontramos :( </p> }    
-        </>
+            {filteredRestaurants.length === 0 &&  <Typography variant="h5" align="center">Nao encontramos :(</Typography> }    
+
+                </SearchPlacehoder>
     );
 }
+
 
 export default SearchPage

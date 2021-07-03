@@ -138,7 +138,7 @@ export default function EditAddress() {
           margin={"normal"}
           fullWidth
           >
-            <Typography variant="h6">Salvar</Typography>
+            <Typography variant="h6">Criar</Typography>
           </StyledButton>
         </form>
 
