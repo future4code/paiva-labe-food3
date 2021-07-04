@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DialogBox(props) {
-  const { setCart } = useGlobalSetters();
-  const { cart } = useGlobalStates()
+  const { setCarrinho } = useGlobalSetters();
+  const { carrinho } = useGlobalStates()
 
   const [quantity, setQuantity] = useState('');
   const classes = useStyles();
@@ -44,9 +44,9 @@ export default function DialogBox(props) {
     setOpen(false);
   };
   const adicionar = async () =>{
-    const copyCart = [...cart]
+    const copyCart = [...carrinho]
     product.quantity = await quantity;
-    await setCart([...copyCart, product])
+    await setCarrinho([...copyCart, product])
     handleClose()
   }
   return (

@@ -25,8 +25,8 @@ const MenuCard = () => {
     `${BASE_URL}/restaurants/${params.idRest}`,
     []
   );
-    const {cart} = useGlobalStates();
-    const { setCart } = useGlobalSetters();
+    const {carrinho} = useGlobalStates();
+    const { setCarrinho } = useGlobalSetters();
 
     const handleAddCart = (productToAdd) => {
       if(productToAdd.quantity){
@@ -41,7 +41,7 @@ const MenuCard = () => {
       restaurantDetail.restaurant &&
       restaurantDetail.restaurant.products &&
       restaurantDetail.restaurant.products.map((product) => {
-        const index = cart.findIndex((productInCart) => {
+        const index = carrinho.findIndex((productInCart) => {
           if(productInCart.id === product.id) {
             return true
           } else {
@@ -51,15 +51,12 @@ const MenuCard = () => {
         if(index === -1){
           return product
         } else {
-          return cart[index]
+          return carrinho[index]
         }
         })
       
       console.log(listaDefinitiva)
-    const MenuList =
-      restaurantDetail.restaurant &&
-      restaurantDetail.restaurant.products &&
-      restaurantDetail.restaurant.products.map((product) => {
+    const MenuList =listaDefinitiva&&listaDefinitiva.map((product) => {
         return (
           <Card className={"root"}>
             <CardMedia
