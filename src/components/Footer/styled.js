@@ -10,7 +10,7 @@ export const FooterContainer = styled.div`
   border-top: 0.5px solid rgba(0, 0, 0, 0.25);
   position: fixed;
   bottom: 0;
-  margin: auto;
+  margin: 0 auto;
 
   /* 
 .home{
