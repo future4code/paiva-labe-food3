@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-//import DialogTitle from '@material-ui/core/DialogTitle';
+import Typography from "@material-ui/core/Typography";
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
@@ -44,19 +44,18 @@ export default function DialogBox(props) {
   return (
     <Div> 
       <Button onClick={handleClickOpen}>Open select dialog</Button>
-      <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
+      <Dialog id="customized-dialog-title"  open={open} onClose={handleClose}>
         
-        <DialogTitle>Selecione a quantidade desejada </DialogTitle>
-        <DialogContent>
+        <DialogTitle>
+        <Typography  variant="body2" color="baseColor" component="p"> Selecione a quantidade desejada </Typography> 
+           </DialogTitle>
+        <DialogContent dividers>
           <form className={classes.container}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="demo-dialog-native"></InputLabel>
-              <Select
-                native
-                value={age}
+              <Select       
                 onChange={handleChange}
-                input={<Input id="demo-dialog-native" />}
-              >
+                >
                 <option aria-label="None" value="" />
                 <option value={1}>1</option>
                 <option value={2}>2</option>
