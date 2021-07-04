@@ -60,7 +60,6 @@ letter-spacing: -0.39px;
     justify-content: space-between;
   }
   .cover {
-    width: 100%;
   min-width: 6rem;
   height: 7rem;
   /* margin: 0 1rem 0 0; */
