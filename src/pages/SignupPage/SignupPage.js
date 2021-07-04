@@ -14,8 +14,11 @@ import {
   FormHelperText,
   InputLabel,
   OutlinedInput,
+  Typography 
 } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+
 
 function SignupPage() {
   const classes = useStyles();
@@ -83,10 +86,11 @@ function SignupPage() {
   };
   return (
     <Container component="main" maxWidth="xs">
+      <ArrowBackIosIcon />
       <CssBaseline />
       <div className={classes.paper}>
         <img src={logo} alt={"logo"} />
-        <p>Cadastrar</p>
+        <Typography variant="h6" align="center">Cadastrar</Typography>
         <form className={classes.form} onSubmit={onClickSave} noValidate>
           <TextField
             name={"name"}
@@ -213,7 +217,7 @@ function SignupPage() {
             color="primary"
             className={classes.submit}
           >
-            Criar
+           Criar
           </StyledButton>
         </form>
       </div>

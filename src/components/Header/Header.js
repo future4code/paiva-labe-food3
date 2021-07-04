@@ -31,10 +31,9 @@ const Name =() => {
 
     return(
         <HeaderContainer>
-        {history.location.pathname === "/restaurant" ? <div></div>:<ArrowBackIosIcon onClick={handleGoBack} className={"Back"}/>}
+        {history.location.pathname === "/restaurant" ? <div className={"zero"}></div>:<ArrowBackIosIcon onClick={handleGoBack} className={"Back"}/>}
             <div className={"title"}>{Name()}</div>
             </HeaderContainer>
-
     )
 }
 export default Header

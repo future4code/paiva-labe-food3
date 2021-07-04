@@ -1,46 +1,90 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { BASE_URL } from "../../constants/urls";
-import UseRequestApi from "../../hooks/UseRequestApi";
 import { MenuContainer } from "./styled";
-import { useParams } from "react-router-dom";
+import { BASE_URL } from "../../constants/urls";
 
+import UseRequestApi from "../../hooks/UseRequestApi";
+import { useParams } from "react-router-dom";
+import Coke from '../../assets/cokeLoading.gif'
+import { useGlobalStates } from "../../global/GlobalState";
+import { useGlobalSetters } from "../../global/GlobalState";
+import DialogBox from './DialogBox/DialogBox'
 
 const MenuCard = () => {
+
   const params = useParams();
+  const [open, setOpen] = useState(false);
+  const [openDialog, setOpenDialog] = useState()
+  const [quantity, setQuantity] = useState()
   const restaurantDetail = UseRequestApi(
     `${BASE_URL}/restaurants/${params.idRest}`,
     []
   );
+    const {cart} = useGlobalStates()
+    const { setCart } = useGlobalSetters();
 
-  const MenuList =
-    restaurantDetail.restaurant &&
-    restaurantDetail.restaurant.products &&
-    restaurantDetail.restaurant.products.map((product) => {
-      return (
-        <Card className={"root"}>
-          <CardMedia
-            className={"cover"}
-            image={product.photoUrl}
-            title={product.name}
-          />
+    const handleAddCart = (productToAdd) => {
+      setOpen(true)
+      console.log(productToAdd)
+      // const index = cart.findIndex((productInCart) => {
+      //   if (productInCart.id === productToAdd.id) {
+      //     return true;
+      //   } else {
+      //     return false;
+      //   }
+      // });
+
+      // if (index === -1) {
+      //   const productWithQuantity = {
+      //     ...productToAdd,
+      //     quantity: quantity,
+      //   };
+      //   const cartCopy = [...cart, productWithQuantity];
+      //   setCart(cartCopy);
+      // } else {
+      //   const cartCopy = cart.map((productInCart) => {
+      //     if (productInCart.id === productToAdd.id) {
+      //       return {
+      //         ...productInCart,
+      //         quantity: quantity,
+      //       };
+      //     } else {
+      //       return productInCart;
+      //     }
+      //   });
+
+      //   setCart(cartCopy);
+      // }
+    };
+
+    const MenuList =
+      restaurantDetail.restaurant &&
+      restaurantDetail.restaurant.products &&
+      restaurantDetail.restaurant.products.map((product) => {
+        return (
+          <Card className={"root"}>
+            <CardMedia
+              className={"cover"}
+              image={product.photoUrl}
+              title={product.name}
+            />
             <CardContent className={"details"}>
               <div className={"content"}>
-               <div className={"name"}>
-              <Typography
-                className={"name"}
-                component="h8"
-                color="primary"
-                variant="h8"
-                >
-                {product.name}
-              </Typography>
-                 </div> 
-              <p>qtd</p>
+                <div className={"name"}>
+                  <Typography
+                    className={"name"}
+                    component="h8"
+                    color="primary"
+                    variant="h8"
+                  >
+                    {product.name}
+                  </Typography>
+                </div>
+                <p>qtd</p>
               </div>
               <Typography
                 className={"description"}
@@ -58,12 +102,26 @@ const MenuCard = () => {
                 >
                   R${product.price}0
                 </Typography>
-                <button className={"Rectangle"}>adicionar</button>
+                <button
+                  className={"Rectangle"}
+                  onClick={() => {
+                    handleAddCart(product);
+                  }}
+                >
+                  adicionar
+                </button>
               </div>
             </CardContent>
-        </Card>
-      );
-    });
+            {open && <DialogBox
+              open={open}
+              quantity={quantity}
+              setQuantity={setQuantity}
+              setOpen={setOpen}
+              // addItemCart={handleAddCart}
+            />}
+          </Card>
+        );
+      });
 
   return (
     <MenuContainer>
@@ -111,7 +169,8 @@ const MenuCard = () => {
           </CardContent>
         </CardActionArea>
       </Card>
-      {MenuList}
+      {restaurantDetail? MenuList :<img className={"loading"} src={Coke} />}
+      
     </MenuContainer>
   );
 };

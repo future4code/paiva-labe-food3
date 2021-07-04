@@ -1,52 +1,89 @@
-
-import React from 'react'
-import Footer from '../../components/Footer/Footer'
-import CreateIcon from '@material-ui/icons/Create';
-import ShoppingCarticon from '@material-ui/icons/ShoppingCart' ;
-import HomeIcon from '@material-ui/icons/Home';
-import PersonOutline  from '@material-ui/icons/PersonOutline';
-import { Container, PersonalInformation, OrderHistory} from './styled'
+import React, { useEffect, useState } from "react";
+import Footer from "../../components/Footer/Footer";
+import CreateIcon from "@material-ui/icons/Create";
+import ShoppingCarticon from "@material-ui/icons/ShoppingCart";
+import HomeIcon from "@material-ui/icons/Home";
+import PersonOutline from "@material-ui/icons/PersonOutline";
+import { Container, Header, PersonalInformation, OrderHistory } from "./styled";
+import axios from 'axios';
+import { BASE_URL } from '../../constants/urls';
+import CardHistory from "./CardHistory";
+import { useHistory } from "react-router-dom";
+import { goToEditProfile, goToEditAddress } from '../../routes/coordinator'
+import {useGlobalStates, useGlobalSetters} from '../../global/GlobalState'
 
 export default function ProfilePage() {
-    const user = {
-          "id": "De8UACSFgFySnKdXm5hI",
-          "name": "Astrodev",
-          "email": "astrodev@future4.com",
-          "cpf": "111.111.111-11",
-          "hasAddress": true,
-          "address": "R. Afonso Braz, 177 - Vila N. Conceição"
-      }
-    
-    return (
-        <>
-        <div>
-            <Footer />
-        </div>
-        <Container>
-            <p>Meu perfil</p>
-            <PersonalInformation>
-                <div>
-                    <p>{user.name} X</p>
-                    <p>{user.email} X</p>
-                    <p>{user.cpf} X</p>
-                </div>
-                <button><CreateIcon/></button>
-            </PersonalInformation>
+  const history = useHistory()
+  const {user} = useGlobalStates()
+  const {setUser} = useGlobalSetters()
 
-            <PersonalInformation className={"address"}>
-                <div >
-                    <p>Endereço cadastrado</p>
-                    <p>{user.address} X</p>
-                </div>
 
-                <button><CreateIcon/></button>
-            </PersonalInformation>
+  const order = {
+    totalPrice: 20,
+    restaurantName: "Habibs",
+    createdAt: 1574660015364,
+    expiresAt: 1574663615364,
+  };
 
-            <OrderHistory>
-                Histórico de pedidos
-            </OrderHistory>
 
-        </Container>
+  const changeProfile = () => {
+    goToEditProfile(history)
+  }
+
+  const changeAddress = () => {
+    goToEditAddress(history)
+  }
+
+  return (
+    <>
+      <div>
+        <Footer />
+      </div>
+      <Container>
+        <Header>
+          <p className="tituloCenter">Meu perfil</p>
+        </Header>
+
+        <PersonalInformation>
+          <div>
+            <p>{user.name} </p>
+            <p>{user.email}</p>
+            <p>{user.cpf}</p>
+          </div>
+          <button onClick={changeProfile}>
+            <CreateIcon />
+          </button>
+        </PersonalInformation>
+
+        <PersonalInformation className={"address"}>
+          <div>
+            <p>Endereço cadastrado</p>
+            <p>{user.address}</p>
+          </div>
+
+          <button onClick={changeAddress}>
+            <CreateIcon />
+          </button>
+        </PersonalInformation>
+
+        <OrderHistory>
+          <p>Histórico de pedidos</p>
+          <hr className="division-orders" />
+
+          <CardHistory totalPrice={order.totalPrice}
+          restaurantName ={order.restaurantName}
+          createdAt={order.createdAt} />
+
+          <CardHistory totalPrice={order.totalPrice}
+          restaurantName ={order.restaurantName}
+          createdAt={order.createdAt} />
+
+          <CardHistory totalPrice={order.totalPrice}
+          restaurantName ={order.restaurantName}
+          createdAt={order.createdAt} />
+        </OrderHistory>
+        <Footer />
+      </Container>
     </>
-    )
+  );
 }
