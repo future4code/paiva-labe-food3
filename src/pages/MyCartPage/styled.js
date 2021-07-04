@@ -106,16 +106,17 @@ export const PaymentTypeTitle = styled.p`
 `;
 
 export const ConfirmButton = styled.button`
+  color: black;
   width: 100%;
   border-radius: 5px;
   border: none;
   padding: 12px 16px;
   font-size: 16px;
-  background-color: #5cb646;
-  margin-top: 16px;
+  background-color: ${primaryColor};
+  margin-top: 5rem;
   height: 42px;
   :disabled {
-    background-color: ${primaryColor};
+    background-color: rgba(232, 34, 46, 0.5);
   }
 `;
 
