@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {BASE_URL} from '../constants/urls.js'
+import {getUserData} from './user'
 
 
 export const changeInfoPerfil = (setUser, body, history) => {
@@ -23,8 +24,7 @@ export const changeInfoPerfil = (setUser, body, history) => {
 
 }
 
-
-export const NewaddAdress = (body, history,clean) => {
+export const NewaddAdress = (body, history, clean, setUser) => {
   axios
   .put(`${BASE_URL}/address`, body, {
       headers: {
@@ -32,8 +32,11 @@ export const NewaddAdress = (body, history,clean) => {
       },
   })
   .then((response) => {
+    console.log(response)
       localStorage.setItem("token", response.data.token);
-      history.push("/profile")
+      getUserData(setUser)
+      alert('Alteração realizada com sucesso!')
+      history.goBack()
       clean()
   })
   .catch((error) => {

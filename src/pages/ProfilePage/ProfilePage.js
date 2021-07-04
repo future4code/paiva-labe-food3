@@ -4,7 +4,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import ShoppingCarticon from "@material-ui/icons/ShoppingCart";
 import HomeIcon from "@material-ui/icons/Home";
 import PersonOutline from "@material-ui/icons/PersonOutline";
-import { Container, Header, PersonalInformation, OrderHistory } from "./styled";
+import { Container, Header, PersonalInformation, OrderHistory} from "./styled";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls';
 import CardHistory from "./CardHistory";
@@ -16,6 +16,7 @@ export default function ProfilePage() {
   const history = useHistory()
   const {user} = useGlobalStates()
   const {setUser} = useGlobalSetters()
+  const [ordersHistory, setOrdersHistory] = useState([])
 
 
   const order = {
@@ -34,6 +35,33 @@ export default function ProfilePage() {
     goToEditAddress(history)
   }
 
+    const orderHistory = () => {
+      axios.get(`${BASE_URL}/orders/history`, {
+          headers: {
+              auth: localStorage.getItem("token"),
+          }
+      })
+      .then((res) => {
+        console.log(res.data)
+        setOrdersHistory(res.data.orders)
+      })
+      .catch((err) => {
+        alert('Ocorreu um erro, tente novamente')
+      })
+    }
+
+    useEffect(() => {
+      orderHistory()
+    }, [])
+
+    const ordersMade = ordersHistory.map((order) => {
+      return(
+        <CardHistory totalPrice={order.totalPrice}
+        restaurantName ={order.restaurantName}
+        createdAt={order.createdAt} />
+      )
+    })
+
   return (
     <>
       <div>
@@ -43,7 +71,6 @@ export default function ProfilePage() {
         <Header>
           <p className="tituloCenter">Meu perfil</p>
         </Header>
-
         <PersonalInformation>
           <div>
             <p>{user.name} </p>
@@ -67,20 +94,12 @@ export default function ProfilePage() {
         </PersonalInformation>
 
         <OrderHistory>
-          <p>Histórico de pedidos</p>
-          <hr className="division-orders" />
+          <h3>Histórico de pedidos</h3>
+          <div className="division-orders"></div>
 
-          <CardHistory totalPrice={order.totalPrice}
-          restaurantName ={order.restaurantName}
-          createdAt={order.createdAt} />
+         {ordersHistory.length > 0 ? ordersMade : <p className='noRequests'>Você não realizou nenhum pedido</p>}
 
-          <CardHistory totalPrice={order.totalPrice}
-          restaurantName ={order.restaurantName}
-          createdAt={order.createdAt} />
-
-          <CardHistory totalPrice={order.totalPrice}
-          restaurantName ={order.restaurantName}
-          createdAt={order.createdAt} />
+       
         </OrderHistory>
         <Footer />
       </Container>
