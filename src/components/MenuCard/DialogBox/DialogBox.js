@@ -4,78 +4,60 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+//import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Switch from '@material-ui/core/Switch';
-import { useGlobalSetters } from "../../../global/GlobalState";
-import { useGlobalStates } from "../../../global/GlobalState"
-
+import {Div,DialogTitle} from './styled'
 
 const useStyles = makeStyles((theme) => ({
-  form: {
+  container: {
     display: 'flex',
-    flexDirection: 'column',
-    margin: 'auto',
-    width: 'fit-content',
+    flexWrap: 'wrap',
+  
   },
+
   formControl: {
-    marginTop: theme.spacing(2),
+    margin: theme.spacing(1),
     minWidth: 120,
-  },
-  formControlLabel: {
-    marginTop: theme.spacing(1),
   },
 }));
 
- export default  function DialogBox (open, setOpen) {
+export default function DialogBox(props) {
   const classes = useStyles();
-const [quantity, setQuantity] = useState("")
+  const {open , setOpen} = props
+  const [age, setAge] = React.useState('');
 
-  // const handleClickOpen = (props) => {
-  //   setOpen(true);
-    
-  // };
-  const handleQuantityProduct = (event) => {
-    setQuantity(event.target.value)
-    console.log(event)
+  const handleChange = (event) => {
+    setAge(Number(event.target.value) || '');
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
-    // props.handleAddCart(quantity)
-    // const newCart = [...cart];
-    // quantity !== 0 && newCart.push({ quantity: quantity});
   };
 
-
   return (
-    <React.Fragment>
-      {/* <Button variant="outlined" color="primary" onClick={props.handleAddCart}>
-        adicionar
-      </Button> */}
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="max-width-dialog-title"
-      >
-        <DialogTitle id="max-width-dialog-title">Selecione a quantidade desejada</DialogTitle>
-
+    <Div> 
+      <Button onClick={handleClickOpen}>Open select dialog</Button>
+      <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
+        
+        <DialogTitle>Selecione a quantidade desejada </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            <FormControl fullWidth variant="outlined">
-              <InputLabel htmlFor="outlined-age-native-simple">
-                Quantidade
-              </InputLabel>
-              <Select required
-              onChange={handleQuantityProduct}
-              
-              value={quantity} label="Quantidade">
-       
-                <option aria-label="None" disabled />
+          <form className={classes.container}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="demo-dialog-native"></InputLabel>
+              <Select
+                native
+                value={age}
+                onChange={handleChange}
+                input={<Input id="demo-dialog-native" />}
+              >
+                <option aria-label="None" value="" />
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
@@ -86,27 +68,20 @@ const [quantity, setQuantity] = useState("")
                 <option value={8}>8</option>
                 <option value={9}>9</option>
                 <option value={10}>10</option>
-                <option value={11}>11</option>
-                <option value={12}>12</option>
-                <option value={13}>13</option>
-                <option value={14}>14</option>
-                <option value={15}>15</option>
-                <option value={16}>16</option>
-                <option value={17}>17</option>
-                <option value={18}>18</option>
-                <option value={19}>19</option>
-                <option value={20}>20</option>
-              
               </Select>
             </FormControl>
-            </DialogContentText>
-          </DialogContent>
+           
+          </form>
+        </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Adicionar ao carrinho
+            Cancel
+          </Button>
+          <Button onClick={handleClose} color="primary">
+            Adicionar ao Carrinho
           </Button>
         </DialogActions>
       </Dialog>
-    </React.Fragment>
+    </Div>
   );
 }
