@@ -1,40 +1,33 @@
 import styled from 'styled-components'
 
-export const ContainerSearch = styled.div `
-    width: 100%;
-  height: 3.5rem;
-  display: flex;
-  border: 1px solid #d0d0d0;
-  border-radius: 2px;
-`
+
 
 
 export const SearchInput = styled.div`
   display: flex; 
   align-items: center;
   justify-content:center;
-  width: 90%;
-  height: 56px;
-  padding: 16px 8px 16px 17px;
   border-radius: 2px;
-  border: solid 1px #b8b8b8;
+  width: 20.5rem;
+  height: 3.5rem;
+  padding: 1rem 0.503rem 1rem 1.063rem;
+  border-radius: 2px;
+  border: solid 1px gray;
 
   input {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
   }
-`  
-export const ButtonSearch = styled.button`
-    display:flex;
-    top:0; right:0;
-    z-index:10;
-    border:none;
-    background:transparent;
-    outline:none;
+`
+export const SearchPlacehoder = styled.div`
+  width: 22.5rem;
+  height: 20rem;
+  padding: 0 0 28.875rem;
+
 `
 
-    export const HaderText = styled.p `
+export const HaderText = styled.p`
        font-size:15px;
     font-weight:500;
     padding-top:12px;

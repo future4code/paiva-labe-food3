@@ -4,10 +4,13 @@ export const RestaurantCardContainer = styled.div`
 display: grid;
 gap:20px;
 padding:1rem;
-margin-bottom:3rem;
+margin-bottom: 72px;
+align-items: center;
 
   .CardRestaurants {
-    max-width: 20.5rem;
+    align-items: center;
+    justify-content:center;
+    max-width: 21.5rem;
     max-height:11.75rem;
   }
 
@@ -16,7 +19,7 @@ margin-bottom:3rem;
   }
 
   .media {
-  width: 20.5rem;
+  width: 100%;
   height: 7.5rem;
   margin: 0 0 0.75rem;
   object-fit: contain;
