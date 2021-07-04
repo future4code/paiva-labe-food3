@@ -1,5 +1,5 @@
-import { ContainerSearch, SearchInput,SearchPlacehoder } from './styled'
-import { InputAdornment, Typography } from '@material-ui/core';
+import { ContainerSearch, SearchInput, SearchPlacehoder } from './styled'
+import { InputAdornment, Typography, Box, TextField } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search'
 import React, { useState, useEffect } from "react";
 import { getSearch } from '../../services/search'
@@ -20,38 +20,46 @@ const SearchPage = () => {
 
     }, [])
 
-       
+
     const filteredRestaurants = restaurants && restaurants.filter((restaurant) => (
         restaurant.name.toLowerCase().includes(form.search.toLowerCase())))
-       
-const filter= {restaurants:filteredRestaurants}
+
+    const filter = { restaurants: filteredRestaurants }
 
 
-  
+
 
     return (
-        <SearchPlacehoder>
-           
+        <Box ml={2} mr={2}>
+
             <form variant="outlined" >
-              
-                    <SearchInput>
-                            <SearchIcon />
-                                       
-                        <input type="text"
-                            name={"search"}
-                            value={form.search}
-                            onChange={onChange}
-                            placeholder="Restaurante" />
-                    </SearchInput>
+                <TextField
+                    autoFocus
+                    name={"search"}
+                    value={form.search}
+                    onChange={onChange}
+                    fullWidth
+                    margin="normal"
+                    placeholder="Restaurante"
+                    id="input-searchpage"
+                    variant="outlined"
+                    color="primaryColor"
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon color="baseColor" />
+                            </InputAdornment>
+                        ),
+                    }}
+                />
 
-             
             </form>
-            {form.search === "" ? <Typography variant="h6" align="center"> Busque por nome de restaurantes </Typography>: 
-            <RestaurantCard restaurants={filter}/>
-            } 
-            {filteredRestaurants.length === 0 &&  <Typography variant="h5" align="center">Nao encontramos :(</Typography> }    
+            {form.search === "" ? <Typography variant="h6" align="center"> Busque por nome de restaurantes </Typography> :
+                <RestaurantCard restaurants={filter} />
+            }
+            {filteredRestaurants.length === 0 && <Typography variant="h5" align="center">Nao encontramos :(</Typography>}
 
-                </SearchPlacehoder>
+        </Box>
     );
 }
 

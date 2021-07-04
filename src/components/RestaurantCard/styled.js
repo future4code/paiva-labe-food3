@@ -10,7 +10,7 @@ align-items: center;
   .CardRestaurants {
     align-items: center;
     justify-content:center;
-    max-width: 20.5rem;
+    max-width: 21.5rem;
     max-height:11.75rem;
   }
 
@@ -19,7 +19,7 @@ align-items: center;
   }
 
   .media {
-  width: 20.5rem;
+  width: 100%;
   height: 7.5rem;
   margin: 0 0 0.75rem;
   object-fit: contain;
