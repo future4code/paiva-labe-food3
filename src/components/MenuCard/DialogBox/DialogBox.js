@@ -44,12 +44,14 @@ export default function DialogBox(props) {
   const handleClose = () => {
     setOpen(false);
   };
+
   const adicionar = () => {
     console.log(product.name)
     const copyCart = [...cart]
     product.quantity = quantity
     setCart([...copyCart, product])
     console.log(cart)
+
     handleClose()
   }
   return (
