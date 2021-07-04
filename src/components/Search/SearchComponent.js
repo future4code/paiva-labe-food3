@@ -2,30 +2,32 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToSearch } from '../../routes/coordinator'
 import { ContainerSearch, SearchInput } from './styled'
-import { InputAdornment } from '@material-ui/core';
+
 import SearchIcon from '@material-ui/icons/Search'
+import { InputAdornment, Typography, Box, TextField } from '@material-ui/core';
 
 export default function SearchComponent() {
     const history = useHistory();
     return (
-        <>
-            <form variant="outlined" onClick= {()=>goToSearch(history)} >
-                <ContainerSearch>
-                    <SearchInput>
-
-
-                        <InputAdornment position="start">
-                            <SearchIcon />
-                        </InputAdornment>
-                        <input type="text"
-
-                            placeholder="Restaurante" />
-                    </SearchInput>
-
-                </ContainerSearch>
+        <Box ml={2} mr={2}>
+            <form variant="outlined" onClick={() => goToSearch(history)} >
+                <TextField
+                    autoFocus
+                    fullWidth
+                    margin="normal"
+                    placeholder="Busca"
+                    id="input-searchpage"
+                    variant="outlined"
+                    color="primaryColory"
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon color="baseColor" />
+                            </InputAdornment>
+                        ),
+                    }}
+                />
             </form>
-
-        </>
-
+        </Box>
     )
 }

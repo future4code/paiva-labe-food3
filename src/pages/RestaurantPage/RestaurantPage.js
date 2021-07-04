@@ -16,8 +16,10 @@ export default function Restaurant() {
     const restaurants = UseRequestApi(`${BASE_URL}/restaurants`, {})
     const [choice, setChoice] = useState("")
     const categoria = []
+    const filteredRestaurants = restaurants.restaurants && restaurants.restaurants
+        .filter(products => products.category.includes(choice))
 
-
+    console.log(choice)
     const listOfCategory = restaurants.restaurants && restaurants.restaurants.map((el, i, arr) => {
         const index = categoria.findIndex((categoryName) => {
             if (categoryName.category === el.category) {
@@ -32,16 +34,16 @@ export default function Restaurant() {
         }
     })
 
-
+    const test = { restaurants: filteredRestaurants }
 
     // const filterCategorys = category.filter((el, i, arr) => arr.indexOf(el) === i);
-
+   
     return (
         <RestaurantContainer>
             <Header />
             <SearchComponent />
-            <Category  categoria={categoria} setChoice={setChoice}/>
-            {restaurants.restaurants ? <RestaurantCard restaurants={restaurants} /> : <img className={"loading"} src={Coke} alt={"loading"} />}
+            <Category categoria={categoria} setChoice={setChoice} choice={choice} />
+            {restaurants.restaurants ? <RestaurantCard restaurants={test} /> : <img className={"loading"} src={Coke} alt={"loading"} />}
             <Footer />
         </RestaurantContainer>
     )
