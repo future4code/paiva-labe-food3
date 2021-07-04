@@ -28,17 +28,17 @@ padding-top: 0.8rem;
 export const AdressCard = styled.div`
   border-top: 1px solid ${secondaryColor};
   background-color: #eeeeee;
-  padding: 1rem;
+  padding: 1rem 0 1rem 1rem;
 `;
 
 export const AdressLabel = styled.p`
   color: ${secondaryColor};
-  margin: 0.5rem;
+  margin: 0.5rem 0;
 `;
 
 export const Adress = styled.p`
   font-weight: 600;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
 `;
 
 export const ContainerScroll = styled.div`
@@ -67,6 +67,7 @@ export const CardItem = styled.div`
   height: 112px;
   background-color: black;
   margin-bottom: 8px;
+  margin: 0 auto;
 `;
 
 export const ContainerPayment = styled.form`
@@ -106,16 +107,17 @@ export const PaymentTypeTitle = styled.p`
 `;
 
 export const ConfirmButton = styled.button`
+  color: black;
   width: 100%;
   border-radius: 5px;
   border: none;
   padding: 12px 16px;
   font-size: 16px;
-  background-color: #5cb646;
-  margin-top: 16px;
+  background-color: ${primaryColor};
+  margin-top: 5rem;
   height: 42px;
   :disabled {
-    background-color: ${primaryColor};
+    background-color: rgba(232, 34, 46, 0.5);
   }
 `;
 
