@@ -54,6 +54,14 @@ export default function ProfilePage() {
       orderHistory()
     }, [])
 
+    const ordersMade = ordersHistory.map((order) => {
+      return(
+        <CardHistory totalPrice={order.totalPrice}
+        restaurantName ={order.restaurantName}
+        createdAt={order.createdAt} />
+      )
+    })
+
   return (
     <>
       <div>
@@ -86,12 +94,10 @@ export default function ProfilePage() {
         </PersonalInformation>
 
         <OrderHistory>
-          <p>Histórico de pedidos</p>
+          <h3>Histórico de pedidos</h3>
           <div className="division-orders"></div>
 
-          <CardHistory totalPrice={order.totalPrice}
-          restaurantName ={order.restaurantName}
-          createdAt={order.createdAt} />
+         {ordersHistory.length > 0 ? ordersMade : <p className='noRequests'>Você não realizou nenhum pedido</p>}
 
        
         </OrderHistory>

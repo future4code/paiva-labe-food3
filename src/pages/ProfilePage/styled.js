@@ -44,4 +44,7 @@ export const OrderHistory = styled.div`
         background-color: ${darkColor};
         height: 1px;
     }
+    .noRequests{
+        text-align: center;
+    }
 `
