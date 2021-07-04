@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import {getUserData} from '../services/user'
 
 export const GlobalState = (props) => {
-    
+  const [cart, setCart] = useState([])
   const [data, setData] = useState([]);
   const [user, setUser] = useState({});
 
@@ -17,8 +17,8 @@ export const GlobalState = (props) => {
     }
 }, [])
 
-  const states = { data, user };
-  const setters = { setData, setUser };
+  const states = { data, user, cart };
+  const setters = { setData, setUser, setCart };
 
  
   return (

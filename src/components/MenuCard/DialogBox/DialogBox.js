@@ -4,13 +4,14 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-//import DialogTitle from '@material-ui/core/DialogTitle';
+import Typography from "@material-ui/core/Typography";
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import {Div,DialogTitle} from './styled'
-
+import { useGlobalSetters } from "../../../global/GlobalState"
+import { useGlobalStates } from "../../../global/GlobalState"
 const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
@@ -25,38 +26,48 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DialogBox(props) {
+  const { setCart } = useGlobalSetters();
+  const {cart} = useGlobalStates()
+
+  const [quantity, setQuantity] = useState('');
+
   const classes = useStyles();
-  const {open , setOpen} = props
-  const [age, setAge] = React.useState('');
+  const {open , setOpen, product} = props
 
   const handleChange = (event) => {
-    setAge(Number(event.target.value) || '');
+    setQuantity(Number(event.target.value) || '');
   };
 
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
-
+  const adicionar = () =>{
+    console.log(product.name)
+    const copyCart = [...cart]
+    product.quantity = quantity
+    setCart([...copyCart, product])
+    console.log(cart)
+    handleClose()
+  }
   return (
     <Div> 
-      <Button onClick={handleClickOpen}>Open select dialog</Button>
       <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
         
-        <DialogTitle>Selecione a quantidade desejada </DialogTitle>
-        <DialogContent>
+        <DialogTitle>
+        <Typography  variant="body2" color="baseColor" component="p"> Selecione a quantidade desejada </Typography> 
+           </DialogTitle>
+        <DialogContent dividers>
           <form className={classes.container}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="demo-dialog-native"></InputLabel>
               <Select
                 native
-                value={age}
+                value={quantity}
                 onChange={handleChange}
-                input={<Input id="demo-dialog-native" />}
-              >
+                >
                 <option aria-label="None" value="" />
                 <option value={1}>1</option>
                 <option value={2}>2</option>
@@ -74,10 +85,7 @@ export default function DialogBox(props) {
           </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={adicionar  } color="primary">
             Adicionar ao Carrinho
           </Button>
         </DialogActions>
