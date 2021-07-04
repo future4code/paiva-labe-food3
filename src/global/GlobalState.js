@@ -1,28 +1,80 @@
-import { GlobalStateContext } from "./GlobalStateContext";
+import GlobalStateContext from "./GlobalStateContext";
+import { useCartState } from "../hooks/useCartState";
+import { getRestaurants } from "../services/getRestaurants";
+import { getActiveOrder } from "../services/getActiveOrder";
 import React, { useContext, useEffect, useState } from "react";
-import {getUserData} from '../services/user'
+import { getUserData } from "../services/user";
 
 export const GlobalState = (props) => {
+  const [restaurants, setRestaurants] = useState([]);
   const [cart, setCart] = useState([])
   const [data, setData] = useState([]);
   const [user, setUser] = useState({});
 
+  const [
+    cartState,
+    addItemCart,
+    removeItemCart,
+    infoRest,
+    setInfoRest,
+    clearCart,
+  ] = useCartState();
+
+
+    const cart = {
+      cartState,
+      addItemCart,
+      removeItemCart,
+      infoRest,
+      setInfoRest,
+      clearCart,
+    };
+
+    
+  const [orders, setOrders] = useState([]);
+  const [isUpdate, setIsUpdate] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      const res = await getRestaurants();
+
+      if (res.status) {
+        setRestaurants(res.restaurants);
+      } else {
+        console.log(res.message);
+      }
+      setIsUpdate(false);
+    })();
+  }, [isUpdate]);
+
+  useEffect(() => {
+    (async () => {
+      const res = await getActiveOrder();
+
+      res.status && setOrders(res.order);
+    })();
+  }, []);
 
   const token = localStorage.getItem("token");
 
-  
   useEffect(() => {
-    if (token){
-      getUserData(setUser)
+    if (token) {
+      getUserData(setUser);
     }
-}, [])
+  }, []);
+  const states = {
+    data,
+    user,
+    restaurants,
+  };
+  const setters = {
+    setData,
+    setUser,
+    setRestaurants,
+  };
 
-  const states = { data, user, cart };
-  const setters = { setData, setUser, setCart };
-
- 
   return (
-    <GlobalStateContext.Provider value={{ states, setters }}>
+    <GlobalStateContext.Provider value={{ states, setters, cart }}>
       {props.children}
     </GlobalStateContext.Provider>
   );
