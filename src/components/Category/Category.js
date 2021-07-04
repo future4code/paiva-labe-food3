@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { CategoryContainer } from "./styled";
-
+import { InputAdornment, Typography } from '@material-ui/core';
 const Category = (props) => {
   const { categoria, setChoice,choice } = props;
  
@@ -21,3 +21,5 @@ const Category = (props) => {
 };
 
 export default Category;
+
+
