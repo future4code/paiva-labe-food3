@@ -20,6 +20,7 @@ const MenuCard = () => {
   const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState()
   const [quantity, setQuantity] = useState()
+  const [migue, setMigue] = useState({})
   const restaurantDetail = UseRequestApi(
     `${BASE_URL}/restaurants/${params.idRest}`,
     []
@@ -29,7 +30,7 @@ const MenuCard = () => {
 
     const handleAddCart = (productToAdd) => {
       setOpen(true)
-      console.log(productToAdd)
+      setMigue(productToAdd)
       // const index = cart.findIndex((productInCart) => {
       //   if (productInCart.id === productToAdd.id) {
       //     return true;
@@ -113,7 +114,7 @@ const MenuCard = () => {
               </div>
             </CardContent>
             {open && <DialogBox
-              product={product}
+              product={migue}
               open={open}
               setOpen={setOpen}
               // addItemCart={handleAddCart}
