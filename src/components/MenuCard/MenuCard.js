@@ -19,6 +19,7 @@ const MenuCard = () => {
   const params = useParams();
   const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState()
+  const [quantity, setQuantity] = useState()
   const restaurantDetail = UseRequestApi(
     `${BASE_URL}/restaurants/${params.idRest}`,
     []
