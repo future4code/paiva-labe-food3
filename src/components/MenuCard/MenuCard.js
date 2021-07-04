@@ -20,7 +20,7 @@ const MenuCard = () => {
   const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState()
   const [quantity, setQuantity] = useState()
-  const [migue, setMigue] = useState({})
+  const [objetoAdicionado, setObjetoAdicionado] = useState({})
   const restaurantDetail = UseRequestApi(
     `${BASE_URL}/restaurants/${params.idRest}`,
     []
@@ -29,39 +29,33 @@ const MenuCard = () => {
     const { setCart } = useGlobalSetters();
 
     const handleAddCart = (productToAdd) => {
-      setOpen(true)
-      setMigue(productToAdd)
-      // const index = cart.findIndex((productInCart) => {
-      //   if (productInCart.id === productToAdd.id) {
-      //     return true;
-      //   } else {
-      //     return false;
-      //   }
-      // });
-
-      // if (index === -1) {
-      //   const productWithQuantity = {
-      //     ...productToAdd,
-      //     quantity: quantity,
-      //   };
-      //   const cartCopy = [...cart, productWithQuantity];
-      //   setCart(cartCopy);
-      // } else {
-      //   const cartCopy = cart.map((productInCart) => {
-      //     if (productInCart.id === productToAdd.id) {
-      //       return {
-      //         ...productInCart,
-      //         quantity: quantity,
-      //       };
-      //     } else {
-      //       return productInCart;
-      //     }
-      //   });
-
-      //   setCart(cartCopy);
-      // }
+      if(productToAdd.quantity){
+        productToAdd.quantity = ""
+        //filtrar-tirar do carrinho
+      } else {
+        setOpen(true)
+        setObjetoAdicionado(productToAdd)
+      }
     };
-
+    const listaDefinitiva =
+      restaurantDetail.restaurant &&
+      restaurantDetail.restaurant.products &&
+      restaurantDetail.restaurant.products.map((product) => {
+        const index = cart.findIndex((productInCart) => {
+          if(productInCart.id === product.id) {
+            return true
+          } else {
+            return false
+          }
+        })
+        if(index === -1){
+          return product
+        } else {
+          return cart[index]
+        }
+        })
+      
+      console.log(listaDefinitiva)
     const MenuList =
       restaurantDetail.restaurant &&
       restaurantDetail.restaurant.products &&
@@ -85,7 +79,7 @@ const MenuCard = () => {
                     {product.name}
                   </Typography>
                 </div>
-                <p>qtd</p>
+                <p>{product.quantity && product.quantity >0 ? product.quantity :"" }</p>
               </div>
               <Typography
                 className={"description"}
@@ -114,7 +108,7 @@ const MenuCard = () => {
               </div>
             </CardContent>
             {open && <DialogBox
-              product={migue}
+              product={objetoAdicionado}
               open={open}
               setOpen={setOpen}
               // addItemCart={handleAddCart}

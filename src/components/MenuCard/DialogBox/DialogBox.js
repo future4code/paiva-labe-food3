@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -28,9 +28,7 @@ const useStyles = makeStyles((theme) => ({
 export default function DialogBox(props) {
   const { setCart } = useGlobalSetters();
   const {cart} = useGlobalStates()
-
   const [quantity, setQuantity] = useState('');
-
   const classes = useStyles();
   const {open , setOpen, product} = props
 
@@ -44,13 +42,10 @@ export default function DialogBox(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const adicionar = () =>{
-    console.log(product)
-
-    // const copyCart = [...cart]
-    // product.quantity = quantity
-    // setCart([...copyCart, product])
-    // console.log(cart)
+  const adicionar = async () =>{
+    const copyCart = [...cart]
+    product.quantity = await quantity;
+    await setCart([...copyCart, product])
     handleClose()
   }
   return (
