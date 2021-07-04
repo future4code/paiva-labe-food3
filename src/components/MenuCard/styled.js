@@ -36,7 +36,7 @@ letter-spacing: -0.39px;
 
   .root {
     display:flex;
-    max-width: 20.5rem;
+    max-width: 21.5rem;
     max-height:7rem;
     flex-wrap: wrap;
     padding-right:0;

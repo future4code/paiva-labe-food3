@@ -20,16 +20,17 @@ const MenuCard = () => {
   const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState()
   const [quantity, setQuantity] = useState()
+  const [migue, setMigue] = useState({})
   const restaurantDetail = UseRequestApi(
     `${BASE_URL}/restaurants/${params.idRest}`,
     []
   );
-    const {cart} = useGlobalStates()
+    const {cart} = useGlobalStates();
     const { setCart } = useGlobalSetters();
 
     const handleAddCart = (productToAdd) => {
       setOpen(true)
-      console.log(productToAdd)
+      setMigue(productToAdd)
       // const index = cart.findIndex((productInCart) => {
       //   if (productInCart.id === productToAdd.id) {
       //     return true;
@@ -113,16 +114,14 @@ const MenuCard = () => {
               </div>
             </CardContent>
             {open && <DialogBox
+              product={migue}
               open={open}
-              quantity={quantity}
-              setQuantity={setQuantity}
               setOpen={setOpen}
               // addItemCart={handleAddCart}
             />}
           </Card>
         );
       });
-
   return (
     <MenuContainer>
       <Card className={"CardMenu"}>
