@@ -7,6 +7,7 @@ import { getUserData } from "../services/user";
 
 export const GlobalState = (props) => {
   const [restaurants, setRestaurants] = useState([]);
+  const [cart, setCart] = useState([])
   const [data, setData] = useState([]);
   const [user, setUser] = useState({});
 
@@ -61,7 +62,6 @@ export const GlobalState = (props) => {
       getUserData(setUser);
     }
   }, []);
-
   const states = {
     data,
     user,
