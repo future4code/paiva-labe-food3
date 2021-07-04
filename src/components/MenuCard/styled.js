@@ -12,7 +12,7 @@ line-height: normal;
 letter-spacing: -0.39px;
 
   .CardMenu {
-    max-width: 20.5rem;
+    max-width: 21.5rem;
   
   }
   .description{
@@ -60,6 +60,7 @@ letter-spacing: -0.39px;
     justify-content: space-between;
   }
   .cover {
+    width: 100%;
   min-width: 6rem;
   height: 7rem;
   /* margin: 0 1rem 0 0; */

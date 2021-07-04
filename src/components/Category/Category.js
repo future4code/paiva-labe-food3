@@ -15,7 +15,7 @@ const Category = (props) => {
 }
   const listadeCategoria = categoria.map((el) => {
     return < >
-    <p onClick={() => handleClick(el)}>{el}</p> </>
+    <Typography color={choice===el ? "primary" : ""}  margin="normal" onClick={() => handleClick(el)}>{el}</Typography> </>
   });
   return <CategoryContainer>{listadeCategoria}</CategoryContainer>;
 };
