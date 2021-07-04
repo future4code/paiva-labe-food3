@@ -19,12 +19,11 @@ const MenuCard = () => {
   const params = useParams();
   const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState()
-  const [quantity, setQuantity] = useState()
   const restaurantDetail = UseRequestApi(
     `${BASE_URL}/restaurants/${params.idRest}`,
     []
   );
-    const {cart} = useGlobalStates()
+    const {cart} = useGlobalStates();
     const { setCart } = useGlobalSetters();
 
     const handleAddCart = (productToAdd) => {
@@ -113,16 +112,14 @@ const MenuCard = () => {
               </div>
             </CardContent>
             {open && <DialogBox
+              product={product}
               open={open}
-              quantity={quantity}
-              setQuantity={setQuantity}
               setOpen={setOpen}
               // addItemCart={handleAddCart}
             />}
           </Card>
         );
       });
-
   return (
     <MenuContainer>
       <Card className={"CardMenu"}>

@@ -10,7 +10,8 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import {Div,DialogTitle} from './styled'
-
+import { useGlobalSetters } from "../../../global/GlobalState"
+import { useGlobalStates } from "../../../global/GlobalState"
 const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
@@ -25,25 +26,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DialogBox(props) {
+  const { setCart } = useGlobalSetters();
+  const {cart} = useGlobalStates()
+
+  const [quantity, setQuantity] = useState('');
+
   const classes = useStyles();
-  const {open , setOpen} = props
-  const [age, setAge] = React.useState('');
+  const {open , setOpen, product} = props
 
   const handleChange = (event) => {
-    setAge(Number(event.target.value) || '');
+    setQuantity(Number(event.target.value) || '');
   };
 
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
-
+  const adicionar = () =>{
+    console.log(product.name)
+    const copyCart = [...cart]
+    product.quantity = quantity
+    setCart([...copyCart, product])
+    console.log(cart)
+    handleClose()
+  }
   return (
     <Div> 
-      <Button onClick={handleClickOpen}>Open select dialog</Button>
       <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
         
         <DialogTitle>Selecione a quantidade desejada </DialogTitle>
@@ -53,7 +63,7 @@ export default function DialogBox(props) {
               <InputLabel htmlFor="demo-dialog-native"></InputLabel>
               <Select
                 native
-                value={age}
+                value={quantity}
                 onChange={handleChange}
                 input={<Input id="demo-dialog-native" />}
               >
@@ -74,10 +84,7 @@ export default function DialogBox(props) {
           </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={adicionar  } color="primary">
             Adicionar ao Carrinho
           </Button>
         </DialogActions>
