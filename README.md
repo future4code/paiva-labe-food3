@@ -8,7 +8,7 @@
   iFood Clone App with React.
 </h4>
 <div align="center">
-    <img width='250px' height='350px' alt="tela inicial" src='https://user-images.githubusercontent.com/75874462/124080920-49b05180-da21-11eb-8e2f-d65d6a1c19c1.PNG'>
+    <img width='400px' height='600px' alt="tela inicial" src='https://user-images.githubusercontent.com/75874462/124080920-49b05180-da21-11eb-8e2f-d65d6a1c19c1.PNG'>
     <img width='400px' height='600px' alt="tela de login" src='https://user-images.githubusercontent.com/75874462/124080998-5f257b80-da21-11eb-877a-aed4505a0ccd.PNG'>
     <img width='400px' height='600px' alt="cadastrar" src='https://user-images.githubusercontent.com/81537288/124406405-a6f51d00-dd17-11eb-9693-46c189428ea3.jpg'>
     <img width='400px' height='600px' alt="restaurante" src='https://user-images.githubusercontent.com/81537288/124406797-ac069c00-dd18-11eb-936f-f7e4ed3af1e2.png'>
