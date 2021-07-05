@@ -4,9 +4,9 @@
     <img alt="logo-ifuture" src="https://user-images.githubusercontent.com/75874462/124066199-a0606000-da0e-11eb-9088-c26b76b8a9a7.png" />
     <br><br>
     iFuture
-</h4>
-  iFood Clone App with React.
-</h4>
+</h6>
+ Aplicativo de delivery de comida Rappi4, projeto final Front End :)
+</h6>
 <br><br>
 <div align="center">
     <img width='400px' height='600px' alt="tela inicial" src='https://user-images.githubusercontent.com/75874462/124080920-49b05180-da21-11eb-8e2f-d65d6a1c19c1.PNG'>
