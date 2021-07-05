@@ -18,7 +18,7 @@
 <br><br>
 
 <p align="center">
-  <a href="https://surge.sh/" target="_blank">
+  <a href="https://ifuture-inc3.surge.sh/" target="_blank">
     <img alt="Demo on Surge" src="https://user-images.githubusercontent.com/75874462/124080112-5f714700-da20-11eb-8ed4-477b2ca790c4.png">
   </a>
 </p>
