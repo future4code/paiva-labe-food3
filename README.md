@@ -31,12 +31,16 @@
 - Editar Perfil / Endereço
 - Lista de Restaurantes com busca/filtros
 - Lista de produtos por restaurante com opção de adicionar a quantidade desejada ao carrinho
-- Carrinho com produtos, endereço de entrega e valor total do pedido
-- Perfil do usuário com histórico de pedidos
-- Aviso de pedido em andamento
+- Perfil do usuário com histórico de pedidos mocado
+- Adicionar e remover quantidade no pedido
 
 ## O que não funciona
 - Não há bugs conhecidos ou recursos sem utilidade nas páginas
+- Carrinho com produtos, endereço de entrega e valor total do pedido
+- Aviso de pedido em andamento.
+
+## Bug 
+- Quando selecionado uma quantidade de produto abre o pop-up e o background fica preto.
 
 ## :rocket: Technologies
 
