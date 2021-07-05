@@ -18,38 +18,21 @@
     <img alt="Demo on Surge" src="https://user-images.githubusercontent.com/75874462/124080112-5f714700-da20-11eb-8ed4-477b2ca790c4.png">
   </a>
 </p>
-O que funciona:
-rotas
-tela inicial preta
-sign up
-login / logout
-cadastro de endereço
-loadings
-feed
-função get restaurants
-filtro de categorias no carrossel
-ir pro detalhes
-snackbar se tiver pedido ativo (função get active order)
-search
-inicia vazio e vai aparecendo conforme o usuario busca
-barra funcionando e filtrando
-se nao tiver resultados, volta um textinho massa
-detalhes do restaurante
-filtro por categorias dos itens
-função adicionar (pelo dialog) / remover itens do carrinho
-carrinho
-pegar os itens que foram pra ele
-pegar os detalhes do restaurante de volta
-função get full address
-funcao de subtotal
-função place order que leva o usuario pro feed com a snackbar
-perfil
-função get profile
-função get orders history
-função editar perfil/ editar endereço (começa com as informações preenchidas <3)
-responsivo
-O que não funciona:
-tudo funciona :)
+
+## O que funciona
+- Tela inicial
+- Login
+- Signup
+- Cadastro
+- Editar Perfil / Endereço
+- Lista de Restaurantes com busca/filtros
+- Lista de produtos por restaurante com opção de adicionar a quantidade desejada ao carrinho
+- Carrinho com produtos, endereço de entrega e valor total do pedido
+- Perfil do usuário com histórico de pedidos
+- Aviso de pedido em andamento
+
+## O que não funciona
+- Não há bugs conhecidos ou recursos sem utilidade nas páginas
 
 ## :rocket: Technologies
 
@@ -65,8 +48,7 @@ This project was developed with the following technologies:
 ### :computer: Developers
 <table>
   <tr>
-    <th>Bruna Barlach</th>
-        <th>Bruna Sales Nunciato</th>
+           <th>Bruna Sales Nunciato</th>
         <th>Camily de Quadros Abade</th>
     <th>Daniel Ueno</th>
     <th>Renato Marinho de Freitas</th>
@@ -88,9 +70,8 @@ This project was developed with the following technologies:
     <td>
   <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01T3LJNPSL-2a067c95b2ec-512' >
     </td>
-    <td>
-  <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01SSF1L5L1-c0fc76c60bca-512' >
-    </td>
+   
+ 
   </tr>
 <table>
 
