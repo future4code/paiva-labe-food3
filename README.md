@@ -1,11 +1,9 @@
-
-
 <h1 align="center">
     <img alt="logo-ifuture" src="https://user-images.githubusercontent.com/75874462/124066199-a0606000-da0e-11eb-9088-c26b76b8a9a7.png" />
     <br><br>
     iFuture
 </h6>
- Aplicativo de delivery de comida Rappi4, projeto final Front End :)
+                        Aplicativo de delivery de comida Ifuture, projeto final Front End :)
 </h6>
 <br><br>
 <div align="center">
