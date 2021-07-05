@@ -1,4 +1,4 @@
-https://user-images.githubusercontent.com/81537288/124407050-58488280-dd19-11eb-8b87-18eaafdee9a5.png
+
 
 <h1 align="center">
     <img alt="logo-ifuture" src="https://user-images.githubusercontent.com/75874462/124066199-a0606000-da0e-11eb-9088-c26b76b8a9a7.png" />
@@ -13,7 +13,7 @@ https://user-images.githubusercontent.com/81537288/124407050-58488280-dd19-11eb-
     <img width='400px' height='600px' alt="cadastrar" src='https://user-images.githubusercontent.com/81537288/124406405-a6f51d00-dd17-11eb-9693-46c189428ea3.jpg'>
     <img width='400px' height='600px' alt="restaurante" src='https://user-images.githubusercontent.com/81537288/124406797-ac069c00-dd18-11eb-936f-f7e4ed3af1e2.png'>
     <img width='400px' height='600px' alt="categoria" src='https://user-images.githubusercontent.com/81537288/124407050-58488280-dd19-11eb-8b87-18eaafdee9a5.png'>
-    <img width='400px' height='600px' alt="perfil" src= https://user-images.githubusercontent.com/81537288/124407682-ea04bf80-dd1a-11eb-8dc5-103b0d9c8fa2.png'>
+    <img width='400px' height='600px' alt="perfil" src='https://user-images.githubusercontent.com/81537288/124407682-ea04bf80-dd1a-11eb-8dc5-103b0d9c8fa2.png'>
 </div>
                                                            
 <br><br>
