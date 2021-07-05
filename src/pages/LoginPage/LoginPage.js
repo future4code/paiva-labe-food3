@@ -22,7 +22,7 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 export default function LoginPage() {
   const classes = useStyles();
   const toast = useToast();
-  const { form, onChange, cleanFields } = useForm({
+  const { form, onChange } = useForm({
     email: "",
     password: "",
   });
@@ -31,12 +31,12 @@ export default function LoginPage() {
     showPassword: false,
     error: false,
   });
+  
 
   const history = useHistory();
 
   const onClickLogin = async (event) => {
     event.preventDefault();
-    cleanFields();
     const res = await login(form);
     if (res.status) {
       localStorage.setItem("token", res.token);
@@ -79,7 +79,7 @@ export default function LoginPage() {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs">      
       <CssBaseline />
       <div className={classes.paper}>
         <img src={logo} alt={"logo"} />
