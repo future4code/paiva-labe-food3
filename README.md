@@ -55,10 +55,7 @@ This project was developed with the following technologies:
     <th>Tiago Pereira de Brito</th>
   </tr>
   <tr>
-    <td>
-  <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01KL8HNSBV-df1b345a6617-512' >
-    </td>
-        <td>
+      <td>
   <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01SDSEG6DQ-54efe6892080-512' >
     </td>
         <td>
@@ -70,9 +67,10 @@ This project was developed with the following technologies:
     <td>
   <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01T3LJNPSL-2a067c95b2ec-512' >
     </td>
-   
- 
-  </tr>
+    <td>
+ <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01SSF1L5L1-c0fc76c60bca-512' >
+    </td>
+   </tr>
 <table>
 
 ## :information_source: How To Use
