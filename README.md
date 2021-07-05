@@ -3,9 +3,6 @@
     <br><br>
     iFuture
 </h1>
-![Cadastrar]
-
-
   iFood Clone App with React.
 </h4>
 <div align="center">
@@ -13,6 +10,7 @@
     <img width='400px' height='600px' alt="tela de login" src='https://user-images.githubusercontent.com/75874462/124080998-5f257b80-da21-11eb-877a-aed4505a0ccd.PNG' >
     <img width='400px' height='600px' alt="cadastrar" src='https://user-images.githubusercontent.com/81537288/124406405-a6f51d00-dd17-11eb-9693-46c189428ea3.jpg >
 </div>
+                                                           
 <br><br>
 
 <p align="center">
@@ -50,8 +48,8 @@ This project was developed with the following technologies:
 ### :computer: Developers
 <table>
   <tr>
-           <th>Bruna Sales Nunciato</th>
-        <th>Camily de Quadros Abade</th>
+     <th>Bruna Sales Nunciato</th>
+     <th>Camily de Quadros Abade</th>
     <th>Daniel Ueno</th>
     <th>Renato Marinho de Freitas</th>
     <th>Tiago Pereira de Brito</th>
