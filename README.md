@@ -1,68 +1,107 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+    <img alt="logo-ifuture" src="https://user-images.githubusercontent.com/75874462/124066199-a0606000-da0e-11eb-9088-c26b76b8a9a7.png" />
+    <br><br>
+    iFuture
+</h6>
+                        Aplicativo de delivery de comida Ifuture, projeto final Front End :)
+</h6>
+<br><br>
+<div align="center">
+    <img width='400px' height='600px' alt="tela inicial" src='https://user-images.githubusercontent.com/75874462/124080920-49b05180-da21-11eb-8e2f-d65d6a1c19c1.PNG'>
+    <img width='400px' height='600px' alt="tela de login" src='https://user-images.githubusercontent.com/75874462/124080998-5f257b80-da21-11eb-877a-aed4505a0ccd.PNG'>
+    <img width='400px' height='600px' alt="cadastrar" src='https://user-images.githubusercontent.com/81537288/124406405-a6f51d00-dd17-11eb-9693-46c189428ea3.jpg'>
+    <img width='400px' height='600px' alt="restaurante" src='https://user-images.githubusercontent.com/81537288/124406797-ac069c00-dd18-11eb-936f-f7e4ed3af1e2.png'>
+    <img width='400px' height='600px' alt="categoria" src='https://user-images.githubusercontent.com/81537288/124407050-58488280-dd19-11eb-8b87-18eaafdee9a5.png'>
+    <img width='400px' height='600px' alt="perfil" src='https://user-images.githubusercontent.com/81537288/124407682-ea04bf80-dd1a-11eb-8dc5-103b0d9c8fa2.png'>
+</div>
+                                                           
+<br><br>
 
-## Available Scripts
+<p align="center">
+  <a href="https://ifuture-inc3.surge.sh/" target="_blank">
+    <img alt="Demo on Surge" src="https://user-images.githubusercontent.com/75874462/124080112-5f714700-da20-11eb-8ed4-477b2ca790c4.png">
+  </a>
+</p>
 
-In the project directory, you can run:
+## O que funciona
+- Tela inicial
+- Login
+- Signup
+- Cadastro
+- Editar Perfil / Endereço
+- Lista de Restaurantes com busca/filtros
+- Lista de produtos por restaurante com opção de adicionar a quantidade desejada ao carrinho
+- Perfil do usuário com histórico de pedidos mocado
+- Adicionar e remover quantidade no pedido
 
-### `npm start`
+## O que não funciona
+- Não há bugs conhecidos ou recursos sem utilidade nas páginas
+- Carrinho com produtos, endereço de entrega e valor total do pedido
+- Aviso de pedido em andamento.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Bug 
+- Quando selecionado uma quantidade de produto abre o pop-up e o background fica preto.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## :rocket: Technologies
 
-### `npm test`
+This project was developed with the following technologies:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-  [ReactJS](https://reactjs.org/)
+-  [React-router-dom](https://reactrouter.com/web/guides/quick-start)
+-  [Axios](https://github.com/axios/axios)
+-  [styled-components](https://www.styled-components.com/)
+-  [Material-UI](https://material-ui.com/pt/)
+-  [VS Code][vc]
 
-### `npm run build`
+### :computer: Developers
+<table>
+  <tr>
+     <th>Bruna Sales Nunciato</th>
+     <th>Camily de Quadros Abade</th>
+    <th>Daniel Ueno</th>
+    <th>Renato Marinho de Freitas</th>
+    <th>Tiago Pereira de Brito</th>
+  </tr>
+  <tr>
+      <td>
+  <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01SDSEG6DQ-54efe6892080-512' >
+    </td>
+        <td>
+  <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01SE378D4K-fa88ed3aa01f-512' >
+    </td>
+     <td>
+  <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01SAQ2S9RT-73ecf5dd6ca1-512' >
+    </td>
+    <td>
+  <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01T3LJNPSL-2a067c95b2ec-512' >
+    </td>
+    <td>
+ <img width='150px' height='150px' src='https://ca.slack-edge.com/TLAVDH7C2-U01SSF1L5L1-c0fc76c60bca-512' >
+    </td>
+   </tr>
+<table>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :information_source: How To Use
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [npm v6.x][npm] or higher installed on your computer. From your command line:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Clone this repository
+$ git clone https://github.com/future4code/paiva-labe-food3.git
 
-### `npm run eject`
+# Go into the repository
+$ cd paiva-labe-food3
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Install dependencies
+$ npm install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Run the app
+$ npm run start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[nodejs]: https://nodejs.org/
+[npm]: https://www.npmjs.com/
+[vc]: https://code.visualstudio.com/
+[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+[vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
